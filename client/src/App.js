@@ -4,16 +4,18 @@ import './App.css';
 import Movielist from './Pages/Data/Movielist';
 import Slider from './Pages/Home/Slider/Slider';
 import Movie from './Pages/Movie/Movie';
+import Home from './Pages/Home/Home';
 
 
 
 function App() {
   const movie= Movielist[0]
   return (
-    <div className="App">
+    <div className="App bg-black">
      <Router>
-        <Slider/>
+        {/* <Slider/> */}
         <Routes>
+            <Route path="/" element= {<Home/>}></Route>
             <Route path="/movie/:movie_id" element= {<Movie/>}></Route>
         </Routes>
 
