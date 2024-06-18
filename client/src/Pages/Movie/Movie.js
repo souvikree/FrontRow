@@ -15,9 +15,13 @@ const Movie = () => {
     const { movie_id } = useParams();
     setZoom();
     return (
-        <div className="min-h-[calc(100vh-160px)] p-[0_calc(3.5vw+5px)]">
-            <MovieDetails movie={Movielist[movie_id - 1]} />
-            {/* <ScreeningDetails movie={movieData[movie_id - 1]} /> */}
+        <div className='w-full h-full flex'>
+        <div className='h-full '>
+            <div className="min-h-[calc(100vh-160px)] px-[calc(3.5vw+5px)] pt-12">
+                <MovieDetails movie={Movielist[movie_id - 1]} />
+                {/* <ScreeningDetails movie={movieData[movie_id - 1]} /> */}
+            </div>
+        </div>
         </div>
     );
 };

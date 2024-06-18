@@ -46,7 +46,7 @@ const MovieDetails = (props) => {
                     </button>
                 </Link>
             </div>
-            <div className="w-full  relative">
+            <div className="w-full  relative ">
                 <ReactPlayer
                     id='MovieTrailer' 
                     url={movie.trailer} 

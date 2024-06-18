@@ -23,7 +23,7 @@ const Movielist = [
     },
     {
         id:2,
-        name:"Chandu Champion",
+        name:"Manikarnika",
         lang1: "Hindi",
         rating: 4.7,
         duration: 175,

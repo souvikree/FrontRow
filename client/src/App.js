@@ -11,7 +11,7 @@ import Home from './Pages/Home/Home';
 function App() {
   const movie= Movielist[0]
   return (
-    <div className="App bg-black">
+    <div className="w-screen h-screen">
      <Router>
         {/* <Slider/> */}
         <Routes>
