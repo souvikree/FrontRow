@@ -1,13 +1,15 @@
 
+import Slider from 'react-slick';
 import './App.css';
-import Slider from './pages/Home/components/Slider';
-
-
+import Middle from './pages/Home/components/Middle';
 function App() {
   return (
+    <>
     <div className="App">
-     <Slider/>
+        <Middle/>
     </div>
+    <Slider/>
+    </>
   );
 }
 
