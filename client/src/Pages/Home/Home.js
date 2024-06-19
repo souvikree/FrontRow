@@ -1,5 +1,6 @@
 import React from "react";
-import Slider from "./Slider/Slider";
+import HeroSlider from "./Components/Slider/Slider";
+
 
 function Home() {
   return (
@@ -10,7 +11,7 @@ function Home() {
              aria-hidden="true">
         </div> */}
         <div className="container mx-auto px-4">
-          <Slider />
+          <HeroSlider />
           {/* <MoviesList /> */}
         </div>
       </div>

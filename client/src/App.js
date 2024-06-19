@@ -2,7 +2,7 @@
 import { BrowserRouter as Router, Route, Switch, Routes } from 'react-router-dom';
 import './App.css';
 import Movielist from './Pages/Data/Movielist';
-import Slider from './Pages/Home/Slider/Slider';
+import Slider from './Pages/Home/Components/Slider/Slider';
 import Movie from './Pages/Movie/Movie';
 import Home from './Pages/Home/Home';
 
