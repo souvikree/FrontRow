@@ -39,14 +39,14 @@ const HeroSlider = () => {
                     className="w-full h-full rounded-2xl bg-center bg-cover flex transition-transform ease-out duration-500 object-cover cursor-pointer relative"
                 >
                     <div className="absolute inset-0 bg-gradient-to-b from-transparent to-black/80"></div>
-                    <div className="absolute bottom-0 p-6 flex flex-col space-y-2 max-w-lg z-10">
-                        <h4 className="text-white text-xl md:text-2xl lg:text-3xl font-bold">
+                    <div className="absolute bottom-0 left-0 p-6 flex flex-col space-y-2 max-w-lg z-10">
+                        <h4 className="text-white text-xl md:text-2xl lg:text-3xl font-bold text-left">
                             {Movielist[currentIndex].name}
                         </h4>
-                        <div className="text-gray-200 text-base font-bold">
+                        <div className="text-gray-200 text-base font-bold text-left">
                             {Movielist[currentIndex].date} • {Movielist[currentIndex].duration}m • ⭐{Movielist[currentIndex].rating}
                         </div>
-                        <div className="text-gray-200 text-lg font-bold mt-auto">
+                        <div className="text-gray-200 text-lg font-bold mt-auto text-left">
                             {Movielist[currentIndex].tag1} | {Movielist[currentIndex].tag2} | {Movielist[currentIndex].tag3}
                         </div>
                     </div>

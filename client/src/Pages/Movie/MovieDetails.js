@@ -19,19 +19,16 @@ const MovieDetails = (props, active) => {
   const movie = props.movie || defaultMovie;
 
   return (
-    <div className="flex flex-col md:flex-row mt-0 h-full w-full bg-[#0c111b] rounded-lg overflow-hidden">
+    <div className="flex flex-col md:flex-row mt-0 h-full w-full bg-[#0c111b] rounded-lg overflow-hidden justify-start">
       <div className="w-full md:w-2/5 p-9 md:p-14 pt-10 px-[36px]">
-        <h1 className="text-white text-3xl font-bold">{movie.name}</h1>
-        <div className="text-gray-400 text-base mt-6">
-          {movie.lang1} • {movie.duration}m • Movie
+        <h1 className="text-white text-4xl font-bold text-left">{movie.name}</h1>
+        <div className="text-white text-base font-semibold mt-6 pl-2 text-left">
+          {movie.lang1} • {movie.duration}m • {movie.genres}
         </div>
-        <div className="text-gray-200 text-lg mt-4 ml-2">{movie.desc}</div>
+        <div className="text-gray-200 text-lg mt-4 ml-2 text-left">{movie.desc}</div>
         <Link to={"/booking/" + movie.id} className="no-underline">
           <button className="mt-7 mb-7 rounded-lg text-base flex items-center h-14 bg-red-700 hover:bg-red-600 px-6">
-            <IconText
-              iconName={"openmoji:ticket"}
-              displayText={"BOOK TICKETS"}
-            />
+            <IconText iconName={"openmoji:ticket"} displayText={"BOOK TICKETS"} />
           </button>
         </Link>
       </div>
