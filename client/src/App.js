@@ -1,4 +1,9 @@
 
+<<<<<<< HEAD
+import Slider from 'react-slick';
+import './App.css';
+import Middle from './pages/Home/components/Middle';
+=======
 import { BrowserRouter as Router, Route, Switch, Routes } from 'react-router-dom';
 import './App.css';
 import Movielist from './Pages/Data/Movielist';
@@ -8,10 +13,15 @@ import Home from './Pages/Home/Home';
 
 
 
+>>>>>>> b1577810327f6ccdfbff6d5b1cadef05e9110013
 function App() {
   const movie= Movielist[0]
   return (
+    <>
     <div className="App">
+<<<<<<< HEAD
+        <Middle/>
+=======
      <Router>
         {/* <Slider/> */}
         <Routes>
@@ -21,7 +31,9 @@ function App() {
 
      </Router>
      
+>>>>>>> b1577810327f6ccdfbff6d5b1cadef05e9110013
     </div>
+    </>
   );
 }
 
