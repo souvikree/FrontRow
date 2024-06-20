@@ -32,7 +32,7 @@ const HeroSlider = () => {
     }, [currentIndex]);
 
     return (
-        <div className="max-w-[1300px] h-[550px] w-full m-auto py-16 px-6 relative group">
+        <div className="max-w-[1300px] h-[550px] w-full m-auto py-16 px-6  relative group">
             <Link to={'/movie/' + Movielist[currentIndex].id}>
                 <div
                     style={{ backgroundImage: `url(${Movielist[currentIndex].poster})` }}

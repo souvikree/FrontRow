@@ -9,6 +9,8 @@ import Home from './Pages/Home/Home';
 import Navbar from './Pages/Navbar/Navbar';
 import LeftNav from './Pages/Navbar/LeftNav';
 import Footer from './Pages/Footer/Footer';
+import Booking from './Pages/Booking/Booking';
+
 
 
 
@@ -27,7 +29,7 @@ function App() {
         <Routes>
             <Route path="/" element= {<Home/>}></Route>
             <Route path="/movie/:movie_id" element= {<Movie/>}></Route>
-            {/* <Route path="/booking/" element= {<Booking/>}></Route> */}
+            <Route path="/booking/:id" element={<Booking />}> </Route>
         </Routes>
         <Footer/>
 
