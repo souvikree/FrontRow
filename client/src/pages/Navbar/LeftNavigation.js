@@ -1,6 +1,6 @@
 import React from "react";
 
-const LeftNavigation = (active) => {
+const LeftNavigation = () => {
   return (
     <div>
       <button
