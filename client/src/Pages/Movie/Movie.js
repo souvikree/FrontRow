@@ -19,7 +19,7 @@ const Movie = () => {
     return (
         
         <div className='h-full w-full  bg-black  '>
-            <div className="min-h-[calc(100vh-160px)] px-[calc(3.5vw+5px)] pt-12 ">
+            <div className="min-h-[calc(100vh-160px)] px-[calc(3.5vw+5px)] pt-16 pl-24 ">
                 <MovieDetails movie={Movielist[movie_id - 1]} />
                 <CastDetails movie= {Movielist[movie_id - 1]} />
                 
