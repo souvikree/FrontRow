@@ -12,6 +12,7 @@ import Footer from './Pages/Footer/Footer';
 
 
 
+
 function App() {
   const movie= Movielist[0]
   return (
@@ -26,6 +27,7 @@ function App() {
         <Routes>
             <Route path="/" element= {<Home/>}></Route>
             <Route path="/movie/:movie_id" element= {<Movie/>}></Route>
+            {/* <Route path="/booking/" element= {<Booking/>}></Route> */}
         </Routes>
         <Footer/>
 

@@ -4,15 +4,15 @@ import { Link } from 'react-router-dom';
 
 const Footer = () => {
   return (
-    <footer className="bg-black text-gray-400 py-8">
-      <div className="container mx-auto px-6">
+    <footer className="bg-black text-gray-400 py-12">
+      <div className="container mx-auto ml-12 ">
         <div className="flex justify-between items-center">
-          <div className='pl-6'>
+          <div className=''>
             <h2 className="text-lg font-semibold text-white">Contact Us</h2>
             <p className="text-sm mt-2 pl-10">Phone: 123-456-7890</p>
             <p className="text-sm pl-12">Email: abc@gmail.com</p>
           </div>
-          <div className='pr-4 text-white'>
+          <div className='pr-24 text-white'>
             <p className="font-semibold mb-4 text-lg">Connect with Us</p>
             <ul className="flex space-x-6">
               <li>
@@ -28,7 +28,7 @@ const Footer = () => {
           </div>
         </div>
         <div className="mt-6 text-center">
-          <Link to="/contact" className="text-sm hover:text-white">Contact Us Page</Link>
+          <Link to="/contact" className="text-sm hover:text-white">Contact Us </Link>
         </div>
         <div className="mt-6 text-center text-sm text-gray-600">
           &copy; 2024 FrontRow. All rights reserved.

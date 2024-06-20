@@ -1,8 +1,6 @@
-// CastDetails.js
 import React from 'react';
 
 const defaultCast = {
-    id: 0,
     cast1: "Unknown",
     cast1Img: "",
     cast2: "Unknown",
@@ -11,7 +9,7 @@ const defaultCast = {
     cast3Img: "",
 };
 
-const CastDetails = ({ movie }) => {
+const CastDetails = ({ movie = defaultCast }) => {
     const cast = [
         { name: movie.cast1 || defaultCast.cast1, image: movie.cast1Img || defaultCast.cast1Img },
         { name: movie.cast2 || defaultCast.cast2, image: movie.cast2Img || defaultCast.cast2Img },
