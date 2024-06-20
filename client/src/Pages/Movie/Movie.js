@@ -5,6 +5,7 @@ import { useParams } from 'react-router-dom';
 
 import Movielist from '../Data/Movielist.js';
 import HeroSlider from '../Home/Components/Slider/Slider.js';
+import CastDetails from './CastDetails.js';
 
 function setZoom() {
     if (navigator.appVersion.indexOf("Win") !== -1) {
@@ -20,6 +21,7 @@ const Movie = () => {
         <div className='h-full w-full  bg-black  '>
             <div className="min-h-[calc(100vh-160px)] px-[calc(3.5vw+5px)] pt-12 ">
                 <MovieDetails movie={Movielist[movie_id - 1]} />
+                <CastDetails movie= {Movielist[movie_id - 1]} />
                 
                 {/* <ScreeningDetails movie={movieData[movie_id - 1]} /> */}
             </div>
