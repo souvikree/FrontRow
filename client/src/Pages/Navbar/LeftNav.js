@@ -1,6 +1,6 @@
 import React from "react";
 
-const LeftNavigation = () => {
+const LeftNav = () => {
   return (
     <div>
       <button
@@ -146,4 +146,4 @@ const LeftNavigation = () => {
   );
 }
 
-export default LeftNavigation
+export default LeftNav

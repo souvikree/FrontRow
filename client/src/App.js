@@ -5,8 +5,9 @@ import Movielist from './Pages/Data/Movielist';
 import Slider from './Pages/Home/Components/Slider/Slider';
 import Movie from './Pages/Movie/Movie';
 import Home from './Pages/Home/Home';
-import LeftNavigation from './Pages/Navbar/LeftNavigation';
+
 import Navbar from './Pages/Navbar/Navbar';
+import LeftNav from './Pages/Navbar/LeftNav';
 
 
 
@@ -20,7 +21,7 @@ function App() {
      <Router>
         {/* <Slider/> */}
         <Navbar/>
-        <LeftNavigation/>
+        <LeftNav/>
         <Routes>
             <Route path="/" element= {<Home/>}></Route>
             <Route path="/movie/:movie_id" element= {<Movie/>}></Route>
