@@ -8,6 +8,7 @@ import Home from './Pages/Home/Home';
 
 import Navbar from './Pages/Navbar/Navbar';
 import LeftNav from './Pages/Navbar/LeftNav';
+import Footer from './Pages/Footer/Footer';
 
 
 
@@ -26,6 +27,7 @@ function App() {
             <Route path="/" element= {<Home/>}></Route>
             <Route path="/movie/:movie_id" element= {<Movie/>}></Route>
         </Routes>
+        <Footer/>
 
      </Router>
          </div>
