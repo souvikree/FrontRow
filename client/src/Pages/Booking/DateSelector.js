@@ -47,7 +47,7 @@ const DateSelector = () => {
     }
   };
 
-  // Generate dates for display (Current date to current date + 9)
+  // Generate dates for display (Current date to current date + 7)
   const currentDate = new Date().getDate(); // Get current date
   const dates = Array.from({ length: 8 }, (_, i) => currentDate + i)
     .map(date => date.toString())
