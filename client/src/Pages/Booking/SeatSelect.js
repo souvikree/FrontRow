@@ -15,7 +15,7 @@ const SeatSelect = ({ selectedSeats, onClose }) => {
   const totalSeats = selectedSeats || 0;
 
   // Dummy seat data - replace with your actual seat arrangement logic
-  const seats = Array.from({ length: 150 }, (_, index) => index + 1);
+  const seats = Array.from({ length: 160 }, (_, index) => 160 - index);
 
   // Define the maximum number of columns
   const maxColumns = 20;
@@ -34,7 +34,7 @@ const SeatSelect = ({ selectedSeats, onClose }) => {
 
       {/* Gold Seats Section */}
       <div>
-        <h2 className="text-sm font-bold text-yellow-500 mb-1 mt-4">Gold Seats - Rs. 200</h2>
+        <h2 className="text-sm font-bold text-yellow-500 mb-1 mt-4 flex">Gold Seats - Rs. 200</h2>
         <div className="w-full border-t-2 border-yellow-500 pt-2">
           <div
             className="grid gap-3 mt-4"
@@ -59,7 +59,7 @@ const SeatSelect = ({ selectedSeats, onClose }) => {
 
       {/* Silver Seats Section */}
       <div>
-        <h2 className="text-sm font-bold  text-gray-400 mb-1 mt-6">Silver Seats - Rs. 100</h2>
+        <h2 className="text-sm font-bold  text-gray-400 mb-1 mt-6 flex">Silver Seats - Rs. 100</h2>
         <div className="w-full border-t-2 border-gray-400 pt-2">
           <div
             className="grid gap-3 mt-4"
@@ -82,10 +82,8 @@ const SeatSelect = ({ selectedSeats, onClose }) => {
         </div>
       </div>
 
-      {/* BookMyShow Screen Image */}
-      <img src={seatImage} alt="BookMyShow Screen" className="mt-1 w-80 mb-6 " style={{ maxWidth: '100%', height: 'auto' }} />
+      <img src={seatImage} alt="FrontRow Screen" className="mt-1 w-80 mb-6 " style={{ maxWidth: '100%', height: 'auto' }} />
 
-    
     </div>
   );
 };
