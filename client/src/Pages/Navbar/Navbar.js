@@ -1,3 +1,4 @@
+import {Link} from "react-router-dom";
 import React from "react";
 import logo from "../assets/logo.png";
 
@@ -73,12 +74,13 @@ const Navbar = () => {
               >
                 My-Theaters
               </a>
+               <Link to="/about">
               <a
-                href="/"
                 className="text-white hover:bg-gray-900 hover:text-gray-100 px-3 py-2 rounded-md text-sm font-medium"
               >
                 About
               </a>
+              </Link>
             </div>
           </div>
           <div className="hidden sm:flex sm:items-center sm:space-x-4">

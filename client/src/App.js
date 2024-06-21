@@ -10,6 +10,7 @@ import LeftNav from './Pages/Navbar/LeftNav';
 import Footer from './Pages/Footer/Footer';
 import Booking from './Pages/Booking/Booking';
 import SeatSelect from './Pages/Booking/SeatSelect';
+// import AboutUs from './Pages/AboutUs/About';
 
 function App() {
   return (
@@ -19,6 +20,7 @@ function App() {
         <LeftNav />
         <Routes>
           <Route path="/" element={<Home />} />
+          {/* <Route path="/about" element={<AboutUs />} /> */}
           <Route path="/movie/:movie_id" element={<Movie />} />
           <Route path="/booking/:id" element={<Booking />} />
           <Route path="/select-seat" element={<SeatSelect />} />
