@@ -2,6 +2,7 @@
 import DateSelector from "./DateSelector";
 import TheaterTimes from "./TheaterTimes";
 
+import SeatCounter from "./SeatCounter";
 
 
 const Booking = () => {
@@ -10,6 +11,9 @@ const Booking = () => {
             <DateSelector/>
             <TheaterTimes/>
             
+
+            <SeatCounter/>
+
         </div>
     )
 }

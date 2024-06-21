@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import SeatCounter from './SeatCounter';
 
 const TheaterTimes = () => {
   const theaters = [
@@ -17,16 +18,22 @@ const TheaterTimes = () => {
   ];
 
   const [selectedTime, setSelectedTime] = useState(null);
+  const [isModalOpen, setIsModalOpen] = useState(false);
 
   const handleTimeClick = (theaterIndex, timeIndex) => {
     setSelectedTime({ theaterIndex, timeIndex });
+    setIsModalOpen(true);
+  };
+
+  const closeModal = () => {
+    setIsModalOpen(false);
   };
 
   return (
     <div className="p-6 bg-black pl-24 pt-10">
       {theaters.map((theater, theaterIndex) => (
-        <div key={theaterIndex} className="mb-8    opacity-70 p-4 rounded-lg  bg-gray-800/80 ">
-          <h2 className="text-xl font-bold text-white  w-  mb-4 flex justify-start">{theater.name}</h2>
+        <div key={theaterIndex} className="mb-8 opacity-70 p-4 rounded-lg bg-gray-800/80">
+          <h2 className="text-xl font-bold text-white mb-4 flex justify-start">{theater.name}</h2>
           <div className="flex gap-4 flex-wrap mt-6">
             {theater.showtimes.map((time, timeIndex) => (
               <div
@@ -36,7 +43,7 @@ const TheaterTimes = () => {
                   selectedTime &&
                   selectedTime.theaterIndex === theaterIndex &&
                   selectedTime.timeIndex === timeIndex
-                    ? 'bg-red-500 text-white '
+                    ? 'bg-red-500 text-white'
                     : 'bg-white'
                 }`}
               >
@@ -46,6 +53,7 @@ const TheaterTimes = () => {
           </div>
         </div>
       ))}
+      <SeatCounter isOpen={isModalOpen} onClose={closeModal} />
     </div>
   );
 };
