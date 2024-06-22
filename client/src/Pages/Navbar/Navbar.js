@@ -5,7 +5,7 @@ import logo from "../assets/logo.png";
 const Navbar = () => {
   return (
 
-    <nav className="bg-black backdrop-blur-lg fixed w-full z-50 top-0">
+    <nav className="bg-bal backdrop-blur-lg fixed w-full z-50 top-0">
 
       <div className="mx-auto px-4 sm:px-6 lg:px-8">
         <div className="relative flex items-center justify-between h-16">
