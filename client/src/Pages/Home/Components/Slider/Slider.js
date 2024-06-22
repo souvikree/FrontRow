@@ -54,12 +54,12 @@ const HeroSlider = () => {
             </Link>
 
             {/* Left Arrow */}
-            <div className="hidden group-hover:block absolute top-[50%] -translate-y-1/2 left-5 text-2xl rounded-full p-2 bg-black/50 text-white cursor-pointer">
+            <div className="hidden group-hover:block absolute top-[50%] -translate-y-1/2 left-10 text-2xl rounded-full p-2 text-white cursor-pointer">
                 <BsChevronCompactLeft onClick={preSlide} size={30} />
             </div>
 
             {/* Right Arrow */}
-            <div className="hidden group-hover:block absolute top-[50%] -translate-y-1/2 right-5 text-2xl rounded-full p-2 bg-black/50 text-white cursor-pointer">
+            <div className="hidden group-hover:block absolute top-[50%] -translate-y-1/2 right-10 text-2xl rounded-full p-2 text-white cursor-pointer">
                 <BsChevronCompactRight onClick={nextSlide} size={30} />
             </div>
 
