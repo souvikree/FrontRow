@@ -64,7 +64,7 @@ const teamMembers = [
 
 const AboutUs = () => {
   return (
-    <div className='bg-black'>
+    <div className='bg-black '>
       <div className='bg-white text-black rounded-lg p-8 m-8 ml-24 mb-0 '>
         <div className='grid grid-cols-2 gap-x-10 px-5 md:px-16'>
           {/* Text Area */}

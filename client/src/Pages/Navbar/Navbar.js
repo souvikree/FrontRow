@@ -4,7 +4,7 @@ import logo from "../assets/logo.png";
 
 const Navbar = () => {
   return (
-    <nav className="bg-black fixed w-full z-50">
+    <nav className="bg-black fixed top-0 w-full z-50 ">
       <div className="mx-auto px-4 sm:px-6 lg:px-8">
         <div className="relative flex items-center justify-between h-16">
           <div className="absolute inset-y-0 left-0 flex items-center sm:hidden">
@@ -72,7 +72,7 @@ const Navbar = () => {
                 href="/"
                 className="text-white hover:bg-gray-900 hover:text-gray-100 px-3 py-2 rounded-md text-sm font-medium"
               >
-                My-Theaters
+                StandUp
               </a>
               <Link to="/about" className="text-white hover:bg-gray-900 hover:text-gray-100 px-3 py-2 rounded-md text-sm font-medium">
                 About
@@ -80,18 +80,22 @@ const Navbar = () => {
             </div>
           </div>
           <div className="hidden sm:flex sm:items-center sm:space-x-4">
+            <Link to="/signup">
             <a
-              href="/"
+              
               className="text-white hover:bg-gray-900 hover:text-gray-100 px-3 py-2 rounded-md text-sm font-medium border border-white"
             >
               Log in
             </a>
+            </Link>
+            <Link to="/login">
             <a
-              href="/"
+              
               className="text-white hover:bg-gray-900 hover:text-gray-100 px-3 py-2 rounded-md text-sm font-medium border border-white"
             >
-              Register
+              Signup
             </a>
+            </Link>
           </div>
         </div>
       </div>

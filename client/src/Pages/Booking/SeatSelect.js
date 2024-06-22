@@ -1,9 +1,10 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import seatImage from "../assets/screen.png"; 
 
 const SeatSelect = ({ selectedSeats, onClose }) => {
   const [selected, setSelected] = useState([]);
   const [selectedCount, setSelectedCount] = useState(0); // State to track selected seats count
+  const [totalSum, setTotalSum] = useState(0); // State to track total sum of selected seats
 
   // Define seat prices
   const goldSeatPrice = 200;
@@ -20,16 +21,18 @@ const SeatSelect = ({ selectedSeats, onClose }) => {
   const regularSeats = seats.slice(maxColumns * 2); // Remaining seats for regular section
 
   // Handle click on a seat
-  const handleSeatClick = (seatNumber, _seatPrice) => {
+  const handleSeatClick = (seatNumber, seatPrice) => {
     if (selected.includes(seatNumber)) {
       setSelected(selected.filter((seat) => seat !== seatNumber));
+      setTotalSum(totalSum - seatPrice);
     } else {
       setSelected([...selected, seatNumber]);
+      setTotalSum(totalSum + seatPrice);
     }
   };
 
   // Update selected seats count when selected state changes
-  React.useEffect(() => {
+  useEffect(() => {
     setSelectedCount(selected.length);
   }, [selected]);
 
@@ -42,9 +45,6 @@ const SeatSelect = ({ selectedSeats, onClose }) => {
 
   return (
     <div className="relative p-4 bg-black text-white flex flex-col items-center">
-      {/* <button onClick={onClose} className="absolute top-4 right-4 bg-red-600 text-white px-6 py-2 rounded mt-8 mr-44">
-        Confirm Selection
-      </button> */}
       <h1 className="text-2xl font-bold mb-4 mt-4">Select Your Seats</h1>
       <p className="mb-4">You can select {selectedSeats} seat(s)</p>
 
@@ -75,7 +75,7 @@ const SeatSelect = ({ selectedSeats, onClose }) => {
 
       {/* Silver Seats Section */}
       <div>
-        <h2 className="text-sm font-bold  text-gray-400 mb-1 mt-6 flex">Silver Seats - Rs. {silverSeatPrice}</h2>
+        <h2 className="text-sm font-bold text-gray-400 mb-1 mt-6 flex">Silver Seats - Rs. {silverSeatPrice}</h2>
         <div className="w-full border-t-2 border-gray-400 pt-2">
           <div
             className="grid gap-3 mt-4"
@@ -103,7 +103,9 @@ const SeatSelect = ({ selectedSeats, onClose }) => {
       {/* Display selected seats count and Confirm Selection button */}
       <div className="fixed bottom-4 left-4 right-4 ml-80 mr-80 bg-white p-4 border border-gray-300 rounded-lg flex justify-between items-center">
         <div>
-          <span className="font-semibold">Selected Seats Count: {selectedCount}</span>
+          
+          
+          <span className="font-semibold text-black">Total: Rs. {totalSum}</span>
         </div>
         <button
           onClick={handleConfirmSelection}
