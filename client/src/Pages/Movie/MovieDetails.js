@@ -18,7 +18,8 @@ const MovieDetails = ({ movie = defaultMovie }) => {
   const [mute, setMute] = useState(true);
 
   return (
-    <div className="flex flex-col md:flex-row mt-0 h-full w-full bg-[#0c111b] rounded-lg overflow-hidden justify-start">
+    
+    <div className="flex flex-col justify-start md:flex-row mt-0 h-full w-full bg-[#0c111b] rounded-lg overflow-hidden ">
       <div className="w-full md:w-2/5 p-9 md:p-14 pt-10 px-[36px]">
         <h1 className="text-white text-3xl font-bold text-left">{movie.name}</h1>
         <div className="text-white text-base font-semibold mt-6 pl-2 text-left">
@@ -53,6 +54,7 @@ const MovieDetails = ({ movie = defaultMovie }) => {
           )}
         </button>
       </div>
+      
     </div>
   );
 };

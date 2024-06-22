@@ -3,7 +3,7 @@ import Modal from './Modal';
 import img3 from '../assets/popup.jpeg';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-import { useNavigate } from 'react-router-dom';
+import {  useNavigate } from 'react-router-dom';
 
 const SeatCounter = ({ isOpen, onClose }) => {
   const [totalSeats, setTotalSeats] = useState(0);
@@ -33,7 +33,7 @@ const SeatCounter = ({ isOpen, onClose }) => {
 
   const handleSelectSeats = () => {
     if (totalSeats > 0) {
-      navigate('/select-seat'); // Corrected route path
+      navigate('/selectseats');
     } else {
       toast.error('Please select at least one seat!', {
         position: 'top-right',
