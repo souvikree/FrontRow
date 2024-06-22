@@ -11,6 +11,9 @@ const SeatSelect = ({ selectedSeats, onClose }) => {
   const silverSeatPrice = 100;
 
   // Dummy seat data - replace with your actual seat arrangement logic
+
+
+
   const seats = Array.from({ length: 160 }, (_, index) => 160 - index);
 
   // Define the maximum number of columns
@@ -103,7 +106,7 @@ const SeatSelect = ({ selectedSeats, onClose }) => {
       {/* Display selected seats count and Confirm Selection button */}
       <div className="fixed bottom-4 left-4 right-4 ml-80 mr-80 bg-white p-4 border border-gray-300 rounded-lg flex justify-between items-center">
         <div>
-          
+        
           
           <span className="font-semibold text-black">Total: Rs. {totalSum}</span>
         </div>
