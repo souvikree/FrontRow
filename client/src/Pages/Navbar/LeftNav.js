@@ -29,12 +29,12 @@ const LeftNav = () => {
 
       <aside
         id="sidebar-multi-level-sidebar"
-        className="fixed top-[64px] left-0 z-40 w-44 h-screen transition-transform -translate-x-full sm:translate-x-0"
+        className="fixed top-[64px] left-2 z-40 w-10 h-screen transition-transform -translate-x-full sm:translate-x-0"
         aria-label="Sidebar"
       >
         {/* Started from here */}
-        <div className="h-full pl-4 py-18 pt-10 overflow-y-auto bg-transparent ">
-          <ul className="space-y-2 font-medium group">
+
+          <ul className="space-y-2 font-medium group w-10">
             <li>
               <a
                 href="#"
@@ -49,7 +49,7 @@ const LeftNav = () => {
                 >
                   <path stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M12 21a9 9 0 1 0 0-18 9 9 0 0 0 0 18Zm0 0a8.949 8.949 0 0 0 4.951-1.488A3.987 3.987 0 0 0 13 16h-2a3.987 3.987 0 0 0-3.951 3.512A8.948 8.948 0 0 0 12 21Zm3-11a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z"/>
                 </svg>
-                <span className={`   absolute left-10 text-slate-100 font-bold opacity-0 group-hover:opacity-100 transition-opacity duration-300 delay-200`} >Profile</span>
+                <span className={`absolute left-10 text-slate-100 font-bold opacity-0 group-hover:opacity-100 transition-opacity duration-300 delay-200`} >Profile</span>
               </a>
             </li>
             <li>
@@ -141,10 +141,9 @@ const LeftNav = () => {
               </a>
             </li>
           </ul>
-        </div>
       </aside>
 
-      <div className="p-4 sm:ml-64"></div>
+      
     </div>
   );
 }

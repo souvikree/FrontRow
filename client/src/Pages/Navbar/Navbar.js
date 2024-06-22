@@ -4,7 +4,7 @@ import logo from "../assets/logo.png";
 
 const Navbar = () => {
   return (
-    <nav className="bg-black fixed w-full z-50">
+    <nav className="bg-transparent backdrop-blur-lg fixed w-full z-50 top-0">
       <div className="mx-auto px-4 sm:px-6 lg:px-8">
         <div className="relative flex items-center justify-between h-16">
           <div className="absolute inset-y-0 left-0 flex items-center sm:hidden">
@@ -52,29 +52,29 @@ const Navbar = () => {
             <div className="hidden sm:flex sm:ml-6 space-x-8">
               <a
                 href="/"
-                className="text-white hover:bg-gray-900 hover:text-gray-100 px-3 py-2 rounded-md text-sm font-medium"
+                className="text-white hover:bg-gray-900 hover:text-gray-100 px-4 py-2 rounded-3xl text-sm font-medium"
               >
                 Movies
               </a>
               <a
                 href="/"
-                className="text-white hover:bg-gray-900 hover:text-gray-100 px-3 py-2 rounded-md text-sm font-medium"
+                className="text-white hover:bg-gray-900 hover:text-gray-100 px-4 py-2 rounded-3xl text-sm font-medium"
               >
                 Theaters
               </a>
               <a
                 
-                className="text-white hover:bg-gray-900 hover:text-gray-100 px-3 py-2 rounded-md text-sm font-medium"
+                className="cursor-pointer text-white hover:bg-gray-900 hover:text-gray-100 px-4 py-2 rounded-3xl text-sm font-medium"
               >
-                Sports
+                My-Movies
               </a>
               <a
                 href="/"
-                className="text-white hover:bg-gray-900 hover:text-gray-100 px-3 py-2 rounded-md text-sm font-medium"
+                className="text-white hover:bg-gray-900 hover:text-gray-100 px-4 py-2 rounded-3xl text-sm font-medium"
               >
                 My-Theaters
               </a>
-              <Link to="/about" className="text-white hover:bg-gray-900 hover:text-gray-100 px-3 py-2 rounded-md text-sm font-medium">
+              <Link to="/about" className="text-white hover:bg-gray-900 hover:text-gray-100 px-5 py-2 rounded-3xl text-sm font-medium">
                 About
               </Link>
             </div>
@@ -82,13 +82,13 @@ const Navbar = () => {
           <div className="hidden sm:flex sm:items-center sm:space-x-4">
             <a
               href="/"
-              className="text-white hover:bg-gray-900 hover:text-gray-100 px-3 py-2 rounded-md text-sm font-medium border border-white"
+              className="text-white hover:bg-gray-900 hover:text-gray-100 px-4 py-2 rounded-3xl text-sm font-medium border border-white"
             >
               Log in
             </a>
             <a
               href="/"
-              className="text-white hover:bg-gray-900 hover:text-gray-100 px-3 py-2 rounded-md text-sm font-medium border border-white"
+              className="text-white hover:bg-gray-900 hover:text-gray-100 px-4 py-2 rounded-3xl text-sm font-medium border border-white"
             >
               Register
             </a>
@@ -106,37 +106,37 @@ const Navbar = () => {
           </a>
           <a
             href="/"
-            className="block px-3 py-2 rounded-md text-base font-medium text-white hover:bg-gray-900"
+            className="block px-3 py-2 rounded-3xl text-base font-medium text-white hover:bg-gray-900"
           >
             Theaters
           </a>
           <a
             href="/"
-            className="block px-3 py-2 rounded-md text-base font-medium text-white hover:bg-gray-900"
+            className="block px-3 py-2 rounded-3xl text-base font-medium text-white hover:bg-gray-900"
           >
             My-Movies
           </a>
           <a
             href="/"
-            className="block px-3 py-2 rounded-md text-base font-medium text-white"
+            className="block px-3 py-2 rounded-3xl text-base font-medium text-white"
           >
             My-Theaters
           </a>
           <a
             href="/"
-            className="block px-3 py-2 rounded-md text-base font-medium text-white hover:bg-gray-900"
+            className="block px-3 py-2 rounded-3xl text-base font-medium text-white hover:bg-gray-900"
           >
             
           </a>
           <a
             href="/"
-            className="block px-3 py-2 rounded-md text-base font-medium text-white border border-white hover:bg-gray-900"
+            className="block px-3 py-2 rounded-3xl text-base font-medium text-white border border-white hover:bg-gray-900"
           >
             Log in
           </a>
           <a
             href="/"
-            className="block px-3 py-2 rounded-md text-base font-medium text-white border border-white hover:bg-gray-900"
+            className="block px-3 py-2 rounded-3xl text-base font-medium text-white border border-white hover:bg-gray-900"
           >
             Register
           </a>

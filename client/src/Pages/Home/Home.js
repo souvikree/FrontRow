@@ -1,5 +1,7 @@
 import React from "react";
 import HeroSlider from "./Components/Slider/Slider";
+import Middle from "./Components/Middle";
+import Topmovies from "./Components/Topmovies";
 
 
 function Home() {
@@ -13,6 +15,12 @@ function Home() {
         <div className="container mx-auto px-4">
           <HeroSlider />
           {/* <MoviesList /> */}
+          <div className="flex justify-center">
+          <Middle/>
+          </div>
+          <div>          
+            <Topmovies/>
+          </div>
         </div>
       </div>
     </div>
