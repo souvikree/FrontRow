@@ -103,7 +103,7 @@ const SeatSelect = ({ selectedSeats, onClose }) => {
       {/* Display selected seats count and Confirm Selection button */}
       <div className="fixed bottom-4 left-4 right-4 ml-80 mr-80 bg-white p-4 border border-gray-300 rounded-lg flex justify-between items-center">
         <div>
-          
+          <span className="font-semibold text-black">Selected Seats Count: {selectedCount}</span>
           
           <span className="font-semibold text-black">Total: Rs. {totalSum}</span>
         </div>

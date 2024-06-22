@@ -6,7 +6,7 @@ import { Link } from 'react-router-dom';
 const SignupComponent = () => {
     return (
         <div className="min-h-screen top-0 flex flex-col items-center justify-center bg-gradient-to-r from-gray-900 via-black to-gray-900 text-white">
-            <div className="w-full max-w-md bg-gray-800 shadow-lg rounded-lg overflow-hidden ">
+            <div className="w-full max-w-md bg-gray-800 shadow-lg rounded-lg overflow-hidden  ">
                 <div className="px-6 py-6">
                     {/* Logo Section */}
                     <div className="flex justify-center mb-8">
