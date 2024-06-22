@@ -33,7 +33,7 @@ const SeatCounter = ({ isOpen, onClose }) => {
 
   const handleSelectSeats = () => {
     if (totalSeats > 0) {
-      navigate('/select-seats');
+      navigate('/selectseats');
     } else {
       toast.error('Please select at least one seat!', {
         position: 'top-right',

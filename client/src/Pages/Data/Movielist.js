@@ -22,6 +22,7 @@ const Movielist = [
         cast2Img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQdH_2iduualx0po6YXIz9DIMewWoFjw6GNy__bY9Ie9Ef2lLm1AcFUf8lpqpyaBwtUH04&usqp=CAU",
         cast3: "Rajpal Yadav",
         cast3Img: "https://encrypted-tbn3.gstatic.com/images?q=tbn:ANd9GcSf08_6XcnNisZdGh7t6NUPgfAvYBnxrrE_vB2n1oBvmqSh6JXq",
+        
     },
     {
         id:2,

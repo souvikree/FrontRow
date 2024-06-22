@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 const LeftNav = () => {
   return (
@@ -71,8 +72,9 @@ const LeftNav = () => {
               </button>
             </li>
             <li>
+            <Link to='/'>
               <a
-                href="#"
+                
                 className=" hover:translate-x-4 duration-300 flex items-center p-2 text-gray-900 rounded-lg dark:text-white group my-8 relative"
               >
                 <svg
@@ -86,6 +88,7 @@ const LeftNav = () => {
                 </svg>
                 <span className="absolute left-10 text-slate-100 font-bold opacity-0 group-hover:opacity-100 transition-opacity duration-300 delay-200">Home</span>
               </a>
+              </Link>
             </li>
             <li>
               <a
