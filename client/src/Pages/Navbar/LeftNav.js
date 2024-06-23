@@ -32,34 +32,31 @@ const LeftNav = () => {
         className="fixed top-[64px] left-2 z-40 w-10 h-screen pl-4 transition-transform -translate-x-full sm:translate-x-0"
         aria-label="Sidebar"
       >
-        <ul className="space-y-2 font-medium group w-10">
-          <li>
-            <a
-              href="#"
-              className="flex items-center p-2 text-gray-900 rounded-lg dark:text-white group mt-12 my-8 relative hover:translate-x-4 duration-300"
-            >
-              <svg
-                className="w-6 h-6 text-gray-500 transition dark:text-gray-400 group-hover:text-gray-900 dark:group-hover:text-white hover:scale-150 duration-400 text-center"
-                aria-hidden="true"
-                xmlns="http://www.w3.org/2000/svg"
-                fill="none"
-                viewBox="0 0 24 24"
+        {/* Started from here */}
+
+          <ul className="space-y-2 font-medium group w-10">
+            <li>
+              <Link to="/profile">
+              <a
+                className="flex items-center p-2 text-gray-900 rounded-lg dark:text-white group mt-12 my-8 relative hover:translate-x-4 duration-300"
               >
-                <path
-                  stroke="currentColor"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth="2"
-                  d="M12 21a9 9 0 1 0 0-18 9 9 0 0 0 0 18Zm0 0a8.949 8.949 0 0 0 4.951-1.488A3.987 3.987 0 0 0 13 16h-2a3.987 3.987 0 0 0-3.951 3.512A8.948 8.948 0 0 0 12 21Zm3-11a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z"
-                />
-              </svg>
-              <span className="absolute left-10 text-slate-100 font-bold opacity-0 group-hover:opacity-100 transition-opacity duration-300 delay-200">
-                Profile
-              </span>
-            </a>
-          </li>
-          <li>
-            <Link to="/explore">
+                <svg
+                  className="w-6 h-6 text-gray-500 transition  dark:text-gray-400 group-hover:text-gray-900 dark:group-hover:text-white hover:scale-150 duration-400 text-center"
+                  aria-hidden="true"
+                  xmlns="http://www.w3.org/2000/svg"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                >
+                  <path stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M12 21a9 9 0 1 0 0-18 9 9 0 0 0 0 18Zm0 0a8.949 8.949 0 0 0 4.951-1.488A3.987 3.987 0 0 0 13 16h-2a3.987 3.987 0 0 0-3.951 3.512A8.948 8.948 0 0 0 12 21Zm3-11a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z"/>
+                </svg>
+                <span className={`absolute left-10 text-slate-100 font-bold opacity-0 group-hover:opacity-100 transition-opacity duration-300 delay-200`} >Profile</span>
+              </a>
+              </Link>
+            </li>
+            <li>
+              <Link to="/explore"> 
+
+            
               <button
                 type="button"
                 className="flex items-center w-full p-2 text-base text-gray-900 transition rounded-lg group dark:text-white relative hover:translate-x-4 duration-300"
