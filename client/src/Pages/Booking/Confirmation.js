@@ -11,10 +11,10 @@ const GST_RATE = 0.18;
 const Confirmation = () => {
   const navigate = useNavigate();
   const location = useLocation();
-  const { selectedSeats, totalSum, movieName } = location.state || {};
+  const { selectedSeats, totalSum } = location.state || {};
 
   // Find the selected movie from the Movielist
-  const selectedMovie = Movielist.find(movie => movie.name === movieName);
+ 
 
   // Calculate GST and total amount
   const gstAmount = totalSum * GST_RATE;
@@ -25,20 +25,7 @@ const Confirmation = () => {
       <div className="max-w-3xl mx-auto bg-gray-800 rounded-lg shadow-lg overflow-hidden">
         <div className="px-6 py-8">
           <h1 className="text-3xl font-bold mb-6 text-center">Booking Confirmation</h1>
-          {/* Movie Details Section */}
-          {selectedMovie && (
-            <div className="mb-8">
-              <div className="flex items-center justify-center mb-6">
-                <img src={selectedMovie.poster} alt={selectedMovie.name} className="w-32 h-48 rounded-lg" />
-                <div className="ml-6">
-                  <h2 className="text-2xl font-bold">{selectedMovie.name}</h2>
-                  <p className="text-lg text-gray-300">{selectedMovie.genre}</p>
-                  <p className="text-lg text-gray-300">{selectedMovie.duration} mins</p>
-                </div>
-              </div>
-              <hr className="border-gray-700 my-6" />
-            </div>
-          )}
+         
 
           {/* Booking Summary */}
           <div className="mb-8">
@@ -66,7 +53,7 @@ const Confirmation = () => {
 
           {/* Proceed to Payment Button */}
           <button
-            onClick={() => navigate('/payment', { state: { totalAmount, movieName, selectedSeats } })}
+            onClick={() => navigate('/payment', { state: { totalAmount, selectedSeats } })}
             className="bg-red-800 text-white px-6 py-3 rounded hover:bg-red-900 focus:outline-none focus:ring-2 focus:ring-blue-600 focus:ring-opacity-50 mt-8 w-full"
           >
             Proceed to Payment
