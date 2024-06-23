@@ -1,6 +1,15 @@
 .App {
   text-align: center;
 }
+body {
+  overflow-x: hidden; /* Prevent horizontal scrolling on the entire page */
+}
+
+/* Or for specific elements causing the issue */
+.scrolling-container {
+  overflow-x: hidden;
+}
+
 
 .App-logo {
   height: 40vmin;

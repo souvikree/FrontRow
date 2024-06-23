@@ -1,6 +1,9 @@
 import React from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import './App.css';
+
+
+
 import Home from './Pages/Home/Home';
 import AboutUs from './Pages/AboutUs/About';
 import Movie from './Pages/Movie/Movie';
@@ -9,23 +12,39 @@ import SeatSelect from './Pages/Booking/SeatSelect';
 import LoginComponent from './Pages/Login/Login';
 import SignupComponent from './Pages/Signup/Signup';
 import MainLayout from './MainLayout';
+import Search from './Pages/SearchBar/Search';
+import Confirmation from './Pages/Booking/Confirmation';
+import Pay from './Pages/Payment/Pay';
+import PaymentSuccess from './Pages/Payment/PaymentSuccess';
 
 
 function App() {
+
   return (
+    
+   
+  
     <div className="App">
       <Router>
+
+        
+
         <MainLayout>
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/about" element={<AboutUs />} />
             <Route path="/login" element={<LoginComponent />} />
             <Route path="/signup" element={<SignupComponent />} />
+            <Route path="/explore" element={<Search />} />
             <Route path="/movie/:movie_id" element={<Movie />} />
             <Route path="/booking/:id" element={<Booking />} />
             <Route path="/selectseats" element={<SeatSelect selectedSeats={4} onClose={() => {}} />} />
+            <Route path="/confirmation" element={<Confirmation />} />
+            <Route path="/payment" element={<Pay/>} />
+            <Route path="/success" element={<PaymentSuccess />} />
           </Routes>
         </MainLayout>
+
       </Router>
     </div>
   );

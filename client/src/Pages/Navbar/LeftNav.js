@@ -53,6 +53,9 @@ const LeftNav = () => {
               </a>
             </li>
             <li>
+              <Link to="/explore"> 
+
+            
               <button
                 type="button"
                 className="flex items-center w-full p-2 text-base text-gray-900 transition  rounded-lg group dark:text-white relative hover:translate-x-4 duration-300"
@@ -70,6 +73,7 @@ const LeftNav = () => {
                 </svg>
                 <span className="text-slate-100 font-bold absolute left-10 opacity-0 group-hover:opacity-100 transition-opacity duration-300 delay-200">Search</span>
               </button>
+              </Link>
             </li>
             <li>
             <Link to='/'>

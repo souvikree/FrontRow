@@ -1,10 +1,12 @@
 import React, { useState, useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
 import seatImage from "../assets/screen.png"; 
 
-const SeatSelect = ({ selectedSeats, onClose }) => {
+const SeatSelect = ({ selectedSeats }) => {
   const [selected, setSelected] = useState([]);
   const [selectedCount, setSelectedCount] = useState(0); // State to track selected seats count
   const [totalSum, setTotalSum] = useState(0); // State to track total sum of selected seats
+  const navigate = useNavigate();
 
   // Define seat prices
   const goldSeatPrice = 200;
@@ -38,9 +40,7 @@ const SeatSelect = ({ selectedSeats, onClose }) => {
 
   // Handle confirmation of seat selection
   const handleConfirmSelection = () => {
-    // Here you can perform further actions, such as submitting data or closing the modal
-    console.log("Selected Seats Count:", selectedCount);
-    onClose(); // Close the modal or perform other actions after confirmation
+    navigate('/confirmation', { state: { selectedSeats: selected, totalSum } });
   };
 
   return (
@@ -98,13 +98,11 @@ const SeatSelect = ({ selectedSeats, onClose }) => {
         </div>
       </div>
 
-      <img src={seatImage} alt="FrontRow Screen" className="mt-1 w-80 mb-6 " style={{ maxWidth: '100%', height: 'auto' }} />
+      <img src={seatImage} alt="FrontRow Screen" className="mt-1 w-80 mb-6" style={{ maxWidth: '100%', height: 'auto' }} />
 
       {/* Display selected seats count and Confirm Selection button */}
       <div className="fixed bottom-4 left-4 right-4 ml-80 mr-80 bg-white p-4 border border-gray-300 rounded-lg flex justify-between items-center">
         <div>
-          <span className="font-semibold text-black">Selected Seats Count: {selectedCount}</span>
-          
           <span className="font-semibold text-black">Total: Rs. {totalSum}</span>
         </div>
         <button
