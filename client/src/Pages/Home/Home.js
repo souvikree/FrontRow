@@ -1,5 +1,8 @@
 import React from "react";
 import HeroSlider from "./Components/Slider/Slider";
+import Middle from "./Components/Middle";
+import Topmovies from "./Components/Topmovies";
+import Catagory from "./Components/Catagory";
 
 
 function Home() {
@@ -13,6 +16,16 @@ function Home() {
         <div className="container mx-auto px-4">
           <HeroSlider />
           {/* <MoviesList /> */}
+          <div className="px-5 pb-6 overflow-y-auto">
+            <Catagory/>
+          </div>
+          <div className="flex justify-center">
+          <Middle/>
+          </div>
+          
+          <div>          
+            <Topmovies/>
+          </div>
         </div>
       </div>
     </div>

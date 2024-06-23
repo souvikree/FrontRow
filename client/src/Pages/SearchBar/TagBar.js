@@ -13,7 +13,7 @@ const TagBar = () => {
   ];
 
   return (
-    <div className="flex space-x-4 pl-28 pt-1 bg-black p-4 overflow-x-auto">
+    <div className="flex space-x-4 pl-32 pt-1 bg-black p-4 overflow-x-auto">
       {tags.map((tag, index) => (
         <button 
           key={index} 

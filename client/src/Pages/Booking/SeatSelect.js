@@ -44,13 +44,13 @@ const SeatSelect = ({ selectedSeats }) => {
   };
 
   return (
-    <div className="relative p-4 bg-black text-white flex flex-col items-center">
+    <div className="relative p-4 bg-black text-white flex flex-col items-center pt-16">
       <h1 className="text-2xl font-bold mb-4 mt-4">Select Your Seats</h1>
       <p className="mb-4">You can select {selectedSeats} seat(s)</p>
 
       {/* Gold Seats Section */}
       <div>
-        <h2 className="text-sm font-bold text-yellow-500 mb-1 mt-4 flex">Gold Seats - Rs. {goldSeatPrice}</h2>
+        <h2 className="text-sm font-bold text-yellow-500 mb-1 mt-2 flex">Gold Seats - Rs. {goldSeatPrice}</h2>
         <div className="w-full border-t-2 border-yellow-500 pt-2">
           <div
             className="grid gap-3 mt-4"
