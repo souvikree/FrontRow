@@ -5,9 +5,8 @@ import logo from "../assets/logo.png";
 const Navbar = () => {
   return (
 
-    <nav className="bg-transparent backdrop-blur-lg fixed w-full z-50 top-0">
+    <nav className="bg-bal backdrop-blur-lg fixed w-full z-50 top-0">
 
-   
       <div className="mx-auto px-4 sm:px-6 lg:px-8">
         <div className="relative flex items-center justify-between h-16">
           <div className="absolute inset-y-0 left-0 flex items-center sm:hidden">
@@ -86,11 +85,8 @@ const Navbar = () => {
             <Link to="/signup">
             <a
 
-              
+              href="/"
               className="text-white hover:bg-gray-900 hover:text-gray-100 px-4 py-2 rounded-3xl text-sm font-medium border border-white"
-
-              
-             
 
             >
               Log in
@@ -98,12 +94,8 @@ const Navbar = () => {
             </Link>
             <Link to="/login">
             <a
-
               href="/"
               className="text-white hover:bg-gray-900 hover:text-gray-100 px-4 py-2 rounded-3xl text-sm font-medium border border-white"
-
-              
-              className="text-white hover:bg-gray-900 hover:text-gray-100 px-3 py-2 rounded-md text-sm font-medium border border-white"
 
             >
               Signup
