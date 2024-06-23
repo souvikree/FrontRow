@@ -1,5 +1,6 @@
 import React from 'react';
 import TagBar from './TagBar';
+import Middle from '../Home/Components/Middle';
 
 const Search = () => {
   return (
@@ -15,6 +16,10 @@ const Search = () => {
       <div>
         <TagBar />
       </div>
+      <div className='bg-black'>
+        <Middle/>
+      </div>
+      
     </>
   );
 }

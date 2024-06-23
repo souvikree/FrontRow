@@ -65,25 +65,29 @@ const Topmovies = () => {
   const moviesToShow = sortedMovies.slice(startIndex, endIndex);
 
   return (
-    <div className='flex flex-wrap'>
-      <h2 className='text-2xl ml-12 text-[#E1E6F0] font-sans font-bold'>Top Rated Movies</h2>
+    <div className='flex flex-wrap '>
+    <div className='flex justify-start ml-16'>
+      <h1 className='ml-1 text-2xl text-[#E1E6F0] font-sans font-bold my-7'>Top Rated Movies</h1>
+
+      </div>
+      <br/>
       <div className='relative mx-auto'>
-          <div className="flex items-center overflow-x-auto gap-4 p-4 max-w-[1180px]">
+          <div className="flex items-center overflow-x-auto gap-4 p-4 max-w-[1940px] ml-12">
             {moviesToShow.map((movie, idx) => (
               <div key={movie.id} className={`flex-none ${idx !== 0 ? 'ml-4' : ''} relative`}>
                 <MovieCard1 posterurl={movie.posterurl} />
-                <span className="absolute bottom-2 -left-8 bg-transparent rounded-md text-gray-300 text-8xl font-bold p-2">{startIndex + idx + 1}</span>
+                <span className="absolute -top-4 -left-6  bg-transparent rounded-md text-gray-300 text-8xl font-bold p-2">{startIndex + idx + 1}</span>
               </div>
             ))}
           </div>
           <button
-            className={`absolute top-1/2 transform -translate-y-1/2 left-2 bg-gray-800 bg-opacity-50 text-white rounded-full p-2 ${currentRow === 0 ? 'hidden' : ''}`}
+            className={`absolute top-1/2 transform -translate-y-1/2 left-6 bg-gray-800 bg-opacity-50 text-white rounded-full p-2 ${currentRow === 0 ? 'hidden' : ''}`}
             onClick={prevRow}
           >
             &lt;
           </button>
           <button
-            className={`absolute top-1/2 transform -translate-y-1/2 right-2 bg-gray-800 bg-opacity-50 text-white rounded-full p-2 ${currentRow === totalRows - 1 ? 'hidden' : ''}`}
+            className={`absolute top-1/2 transform -translate-y-1/2 right-6 bg-gray-800 bg-opacity-50 text-white rounded-full p-2 ${currentRow === totalRows - 1 ? 'hidden' : ''}`}
             onClick={nextRow}
           >
             &gt;
