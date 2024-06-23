@@ -36,8 +36,8 @@ const LeftNav = () => {
 
           <ul className="space-y-2 font-medium group w-10">
             <li>
+              <Link to="/profile">
               <a
-                href="#"
                 className="flex items-center p-2 text-gray-900 rounded-lg dark:text-white group mt-12 my-8 relative hover:translate-x-4 duration-300"
               >
                 <svg
@@ -51,6 +51,7 @@ const LeftNav = () => {
                 </svg>
                 <span className={`absolute left-10 text-slate-100 font-bold opacity-0 group-hover:opacity-100 transition-opacity duration-300 delay-200`} >Profile</span>
               </a>
+              </Link>
             </li>
             <li>
               <Link to="/explore"> 

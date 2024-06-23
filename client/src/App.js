@@ -14,6 +14,8 @@ import LoginComponent from './Pages/Login/Login';
 import SignupComponent from './Pages/Signup/Signup';
 import MainLayout from './MainLayout';
 import Search from './Pages/SearchBar/Search';
+import Profile from './Pages/Profile/Profile';
+
 
 
 function App() {
@@ -31,12 +33,14 @@ function App() {
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/about" element={<AboutUs />} />
+            <Route path='/profile' element={<Profile />}/>
             <Route path="/login" element={<LoginComponent />} />
             <Route path="/signup" element={<SignupComponent />} />
             <Route path="/explore" element={<Search />} />
             <Route path="/movie/:movie_id" element={<Movie />} />
             <Route path="/booking/:id" element={<Booking />} />
             <Route path="/selectseats" element={<SeatSelect selectedSeats={4} onClose={() => {}} />} />
+
           </Routes>
         </MainLayout>
 
