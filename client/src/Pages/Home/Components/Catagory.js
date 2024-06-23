@@ -18,7 +18,7 @@ const Catagory = () => {
 
   useEffect(() => {
     if (selectedCategory === 'All') {
-      setFilteredMovies(HomeMovieList.slice(0,10));
+      setFilteredMovies(HomeMovieList.slice(3,13));
     } else {
       setFilteredMovies(HomeMovieList.filter(movie => movie.genres.includes(selectedCategory)));
     }
@@ -40,7 +40,7 @@ const Catagory = () => {
       <div className='flex flex-wrap'>
       <div className="grid gap-4 p-4 mx-auto sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 xl:grid-cols-7 2xl:grid-cols-8">
         {filteredMovies.map(movie => (
-          <MovieCard1 key={movie.id} posterurl={movie.posterurl} />
+          <MovieCard1 key={movie.id} poster={movie.poster} />
         ))}
       </div>
       </div>

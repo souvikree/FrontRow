@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import MovieCard1 from './MovieCard1';  
 import HoverCard from './HoverCard';    
 
-const MovieCardContainer = ({ posterurl }) => {
+const MovieCardContainer = ({ poster }) => {
   const [isHovered, setIsHovered] = useState(false);
 
   const handleMouseEnter = () => {
@@ -16,13 +16,13 @@ const MovieCardContainer = ({ posterurl }) => {
   return (
     <div className="relative">
       <MovieCard1 
-        posterurl={posterurl}
+        poster={poster}
         onMouseEnter={handleMouseEnter}
         onMouseLeave={handleMouseLeave}
       />
       {isHovered && (
         <div className="absolute top-0 left-0 z-10">
-          <HoverCard posterurl={posterurl} />
+          <HoverCard poster={poster} />
         </div>
       )}
     </div>

@@ -54,16 +54,19 @@ const Topmovies = () => {
   const moviesToShow = sortedMovies.slice(startIndex, endIndex);
 
   return (
-    <div className='bg-black'>
+
+    <div className='bg-black flex flex-wrap'>
       <h2 className='text-2xl text-center text-[#E1E6F0] font-sans font-bold py-4 flex justify-start pl-20'>Top Rated Movies</h2>
-      <div className='relative mx-auto px-4'>
+      <div className='relative mx-auto px-4 ml-2'>
         <div className="flex ml-16 gap-4 pb-4">
           {moviesToShow.map((movie, idx) => (
-            <div key={movie.id} className="relative flex-none w-48">
-              <MovieCard1 posterurl={movie.posterurl} />
-              <span className="absolute bottom-2 left-2 bg-transparent rounded-md text-gray-300 text-xl font-bold">{startIndex + idx + 1}</span>
+            <div key={movie.id} className={`flex-none ${idx !== 0 ? 'ml-4' : ''} relative`}>
+              <MovieCard1 poster={movie.poster} />
+              <span className="absolute bottom-2 -left-8 bg-transparent rounded-md text-gray-300 text-8xl font-bold p-2">{startIndex + idx + 1}</span>
             </div>
           ))}
+
+
         </div>
         {/* Left Arrow */}
         <button

@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 import React from "react";
-import logo from "../assets/logo.png";
+import logo from "../assets/FrontRow.png";
 
 const Navbar = () => {
   return (
@@ -49,7 +49,7 @@ const Navbar = () => {
           </div>
           <div className="flex items-center justify-between sm:items-stretch sm:justify-start">
             <div className="flex-shrink-0 pl-1">
-              <img src={logo} alt="Logo" className="h-10 w-auto" />
+              <img src={logo} alt="Logo" className="h-6 mt-2 w-auto" />
             </div>
             <div className="hidden sm:flex sm:ml-6 space-x-8">
               <a

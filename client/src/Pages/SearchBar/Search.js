@@ -1,6 +1,10 @@
 import React from 'react';
+
 import { Icon } from '@iconify/react';
-import Catagory from './Catagory';
+
+
+import Catagory from '../Home/Components/Catagory';
+
 
 const Search = () => {
   return (

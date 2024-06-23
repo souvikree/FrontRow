@@ -9,11 +9,11 @@ const Middle = () => {
   return (
     <>
       <div className='flex flex-wrap'>
-        <h1 className='text-2xl ml-12 text-[#E1E6F0] font-sans font-bold'>Trending in India</h1>
+        <h1 className='text-2xl ml-12 pl-10 text-[#E1E6F0] font-sans font-bold'>Recomended For You</h1>
         <div className='grid gap-4 p-4 mx-auto sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 xl:grid-cols-7 2xl:grid-cols-8'>
           {
             last20Movies.map((val, idx) => {
-              return <MovieCardContainer key={idx} posterurl={val.posterurl} />
+              return <MovieCardContainer key={idx} poster={val.poster} />
             })
           }
         </div>

@@ -1,18 +1,22 @@
 import React, { useState, useEffect } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, useLocation } from 'react-router-dom';
 import seatImage from "../assets/screen.png"; 
 
-const SeatSelect = ({ selectedSeats }) => {
+const SeatSelect = () => {
   const [selected, setSelected] = useState([]);
   const [selectedCount, setSelectedCount] = useState(0); // State to track selected seats count
   const [totalSum, setTotalSum] = useState(0); // State to track total sum of selected seats
   const navigate = useNavigate();
+  const location = useLocation();
+
+  // Extract totalSeats from location state
+  const totalSeats = location.state && location.state.totalSeats ? location.state.totalSeats : 0;
 
   // Define seat prices
   const goldSeatPrice = 200;
   const silverSeatPrice = 100;
 
-  // Dummy seat data - replace with your actual seat arrangement logic
+  // Dummy seat data 
   const seats = Array.from({ length: 160 }, (_, index) => 160 - index);
 
   // Define the maximum number of columns
@@ -28,8 +32,10 @@ const SeatSelect = ({ selectedSeats }) => {
       setSelected(selected.filter((seat) => seat !== seatNumber));
       setTotalSum(totalSum - seatPrice);
     } else {
-      setSelected([...selected, seatNumber]);
-      setTotalSum(totalSum + seatPrice);
+      if (selected.length < totalSeats) { // Check if total selected seats are less than totalSeats
+        setSelected([...selected, seatNumber]);
+        setTotalSum(totalSum + seatPrice);
+      }
     }
   };
 
@@ -40,17 +46,24 @@ const SeatSelect = ({ selectedSeats }) => {
 
   // Handle confirmation of seat selection
   const handleConfirmSelection = () => {
-    navigate('/confirmation', { state: { selectedSeats: selected, totalSum } });
+    // Ensure exactly totalSeats are selected before confirming
+    if (selected.length === totalSeats) {
+      // Here you can perform further actions, such as submitting data or closing the modal
+      console.log("Selected Seats Count:", selectedCount);
+      navigate('/confirmation', { state: { selectedSeats: selected, totalSum } }); // Navigate to confirmation page with selected seats and total sum
+    } else {
+      alert(`Please select exactly ${totalSeats} seat(s)!`);
+    }
   };
 
   return (
-    <div className="relative p-4 bg-black text-white flex flex-col items-center pt-16">
+    <div className="relative p-4 mt-14 bg-black text-white flex flex-col items-center">
       <h1 className="text-2xl font-bold mb-4 mt-4">Select Your Seats</h1>
-      <p className="mb-4">You can select {selectedSeats} seat(s)</p>
+      <p className="mb-4">You can select {totalSeats} seat(s)</p>
 
       {/* Gold Seats Section */}
       <div>
-        <h2 className="text-sm font-bold text-yellow-500 mb-1 mt-2 flex">Gold Seats - Rs. {goldSeatPrice}</h2>
+        <h2 className="text-sm font-bold text-yellow-500 mb-1 mt-4 flex">Gold Seats - Rs. {goldSeatPrice}</h2>
         <div className="w-full border-t-2 border-yellow-500 pt-2">
           <div
             className="grid gap-3 mt-4"
@@ -98,7 +111,7 @@ const SeatSelect = ({ selectedSeats }) => {
         </div>
       </div>
 
-      <img src={seatImage} alt="FrontRow Screen" className="mt-1 w-80 mb-6" style={{ maxWidth: '100%', height: 'auto' }} />
+      <img src={seatImage} alt="FrontRow Screen" className="mt-1 w-80 mb-6 " style={{ maxWidth: '100%', height: 'auto' }} />
 
       {/* Display selected seats count and Confirm Selection button */}
       <div className="fixed bottom-4 left-4 right-4 ml-80 mr-80 bg-white p-4 border border-gray-300 rounded-lg flex justify-between items-center">
@@ -107,8 +120,8 @@ const SeatSelect = ({ selectedSeats }) => {
         </div>
         <button
           onClick={handleConfirmSelection}
-          className={`bg-blue-600 text-white px-6 py-2 rounded hover:bg-red-700 ${selectedCount === 0 ? 'opacity-50 cursor-not-allowed' : ''}`}
-          disabled={selectedCount === 0}
+          className={`bg-blue-600 text-white px-6 py-2 rounded hover:bg-red-700 ${selectedCount === 0 && selected.length !== totalSeats ? 'opacity-50 cursor-not-allowed' : ''}`}
+          disabled={selectedCount === 0 && selected.length !== totalSeats}
         >
           Confirm Selection
         </button>
