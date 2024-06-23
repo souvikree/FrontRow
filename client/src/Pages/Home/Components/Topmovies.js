@@ -64,7 +64,7 @@ const Topmovies = () => {
           <div className="flex items-center overflow-x-auto gap-4 p-4 max-w-[1180px]">
             {moviesToShow.map((movie, idx) => (
               <div key={movie.id} className={`flex-none ${idx !== 0 ? 'ml-4' : ''} relative`}>
-                <MovieCard1 posterurl={movie.posterurl} />
+                <MovieCard1 poster={movie.poster} />
                 <span className="absolute bottom-2 -left-8 bg-transparent rounded-md text-gray-300 text-8xl font-bold p-2">{startIndex + idx + 1}</span>
               </div>
             ))}
