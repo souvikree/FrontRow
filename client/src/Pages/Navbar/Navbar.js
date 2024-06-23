@@ -1,11 +1,11 @@
 import { Link } from "react-router-dom";
 import React from "react";
-import logo from "../assets/logo.png";
+import logo from "../assets/FrontRow.png";
 
 const Navbar = () => {
   return (
 
-    <nav className="bg-bal backdrop-blur-lg fixed w-full z-50 top-0">
+    <nav className="bg-black  backdrop-blur-lg fixed w-full z-50 top-0">
 
       <div className="mx-auto px-4 sm:px-6 lg:px-8">
         <div className="relative flex items-center justify-between h-16">
@@ -49,7 +49,7 @@ const Navbar = () => {
           </div>
           <div className="flex items-center justify-between sm:items-stretch sm:justify-start">
             <div className="flex-shrink-0 pl-1">
-              <img src={logo} alt="Logo" className="h-10 w-auto" />
+              <img src={logo} alt="Logo" className="h-6 mt-2 w-auto" />
             </div>
             <div className="hidden sm:flex sm:ml-6 space-x-8">
               <a

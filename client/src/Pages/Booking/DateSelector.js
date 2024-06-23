@@ -54,7 +54,7 @@ const DateSelector = () => {
     .filter(date => date <= 31); // Ensure dates are within valid month range
 
   return (
-    <div className="bg-black pt-10 pl-24">
+    <div className="bg-black pt-16  pl-24">
       <div className="flex items-center space-x-4 overflow-hidden relative">
         <div className="flex space-x-4 overflow-x-hidden" ref={datesContainerRef}>
           {dates.map((date, index) => (

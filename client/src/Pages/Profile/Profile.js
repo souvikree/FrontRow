@@ -2,6 +2,7 @@ import React from 'react';
 import barcode from "../assets/barcode.png";
 import camera1 from "../assets/camera1.jpg";
 import profileImage from "../assets/profileImage.png"; // Import your profile image here
+import { Icon } from '@iconify/react/dist/iconify.js';
 const def = {
     name: "John Doe",
     email: "john.doe@example.com",
@@ -16,25 +17,42 @@ const Profile = ({ user = def }) => {
     const handleLogout = () => {
         console.log("Logged out"); 
     };
+
+    const handleEditProfile = () => {
+        console.log("Edit profile clicked");
+        // Implement your edit profile logic here
+    };
+
     return (
-        <div className="bg-black min-h-screen min-w-full p-4 text-white flex pl-24 items-center">
-            <div className="w-full max-w-4xl">
-                <div className="flex justify-end mb-4">
-                    <button onClick={handleLogout} className="bg-black-500 hover:bg-red-600 text-white font-bold py-2 px-4 rounded">
+        <div className="bg-black min-h-screen min-w-full p-4 text-white flex pl-28 items-center">
+            <div className="w-full max-w-4xl pt-12">
+                
+                <div className="absolute top-0 right-0 pt-24 pr-24 flex items-center text-lg font-bold">
+                    <button onClick={handleEditProfile} className="bg-black-500 border border-white hover:bg-blue-600 text-white  py-2 px-4 rounded flex items-center">
+                        <Icon icon="nimbus:pencil" className="mr-2" width={23} />Edit
+                    </button>
+                    <button onClick={handleLogout} className="bg-black-500 border border-white hover:bg-red-600 text-white  py-2 px-4 rounded ml-4">
                         Logout
-                     </button>
+                    </button>
                 </div>
-                <h2 className="text-3xl font-semibold mt-10 mb-8 flex">Profile :</h2>
-                <div className="mb-4 pb-4 border-b border-gray-600 w-screen flex"> 
-                    <div className="w-16 h-16 rounded-full overflow-hidden mr-4">
-                        <img src={profileImage} alt="Profile" className="object-cover w-full h-full" />
+                <div className="border-b border-gray-600 w-screen ">
+                    <div className="flex top-0"> 
+                        <div className="w-16 h-16 rounded-full overflow-hidden mr-4">
+                            <img src={profileImage} alt="Profile" className="object-cover w-full h-full" />
+                        </div>
+                        
                     </div>
-                    <div className="flex text-lg font-semibold space-x-6">
-                        <span>Name: {user.name}</span>
-                        <span>Email: {user.email}</span>
-                        <span>Phone: {user.phone}</span>
-                    </div>
+                    <div className="text-lg text-left  mt-4 font-semibold">
+                           <ul>
+                           <p>Name: {user.name}</p>
+                            <p>Email: {user.email}</p>
+                            <p>Phone: {user.phone}</p>
+                           </ul>
+                            
+                            
+                        </div>
                 </div>
+                
                 <div>
                     <h3 className="text-xl font-semibold mb-4 flex">Booked Tickets:</h3>
                     <ul className="pl-2 w-screen max-w-7xl">

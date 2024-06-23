@@ -1,38 +1,41 @@
-import { Icon } from '@iconify/react';
-import TextInput from '../Icons/TextInput';
-import PasswordInput from '../Icons/PasswordInput';
 import { Link } from 'react-router-dom';
-import logo from "../assets/logo2.png";
+import logo from "../assets/FrontRow.png";
+// import movieBackground from "../assets/movie-background.jpg"; // Replace with your movie-related image
 
 const LoginComponent = () => {
     return (
-        <div className="bg-black relative">
-            <div className="absolute top-4 right-4">
-                <button className="bg-gray-900  text-white py-1 px-4 rounded-full hover:bg-gray-950  transition duration-300">
-                    Help?
-                </button>
-            </div>
-            <div className="min-h-screen flex flex-col items-center justify-center bg-gradient-to-l from-gray-900 via-black to-gray-900 ">
+        <div className="relative">
+        
+            {/* Background Image */}
+            {/* <img
+                src={movieBackground}
+                alt="Movie Background"
+                className="absolute inset-0 object-cover w-full h-full"
+            />
+             */}
+            {/* Overlay */}
+            <div className="absolute inset-0 bg-black opacity-80"></div>
+
+            <div className="min-h-screen flex flex-col items-center justify-center">
                 <div className="w-full max-w-sm bg-gray-800 shadow-md rounded-lg overflow-hidden">
                     <div className="px-6 py-8">
                         <div className="flex justify-center">
-                            {/* <img src={logo} className="w-44 h-auto pb-2" alt="Logo" /> */}
-                            {/* <Icon icon="logos:spotify" className="text-green-500 text-5xl" /> */}
+                            <img src={logo} className="w-56 h-auto mt-0 pt-0 pb-10" alt="Logo" />
                         </div>
-                        <h2 className="text-center text-3xl font-bold text-white mb-6">Log In to FrontRow</h2>
+                        
                         <form>
                             <div className="mb-4">
-                                <TextInput 
-                                    label="Email or Username"
-                                    placeholder="Enter your email or username"
-                                    className="py-2 px-4"
+                                <input 
+                                    type="text" 
+                                    placeholder="Enter your email or username" 
+                                    className="w-full py-2 px-4 bg-gray-700 text-white rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500"
                                 />
                             </div>
                             <div className="mb-6 pl-4 pr-4">
-                                <PasswordInput 
-                                    label="Password"
-                                    placeholder="Enter your password"
-                                    className="py-2 px-4"
+                                <input 
+                                    type="password" 
+                                    placeholder="Enter your password" 
+                                    className="w-full py-2 px-4 bg-gray-700 text-white rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500"
                                 />
                             </div>
                             <div className="flex items-center justify-end">
@@ -42,7 +45,7 @@ const LoginComponent = () => {
                             </div>
                             <button 
                                 type="submit" 
-                                className="w-full bg-green-500 hover:bg-green-600 text-white py-2 px-4 mt-4 rounded-md font-semibold transition duration-300"
+                                className="w-full bg-green-500 hover:bg-green-600 text-white py-2 px-4 mt-4 rounded-md font-semibold transition duration-300 focus:outline-none focus:ring-2 focus:ring-green-500"
                             >
                                 Log In
                             </button>
