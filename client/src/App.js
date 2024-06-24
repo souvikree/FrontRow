@@ -16,6 +16,9 @@ import Confirmation from './Pages/Booking/Confirmation';
 import Pay from './Pages/Payment/Pay';
 import PaymentSuccess from './Pages/Payment/PaymentSuccess';
 import CatagoryPage from './Pages/Catagory/CatagoryPage';
+import Admin from './Pages/Admin/Admin';
+
+
 
 
 function App() {
@@ -25,6 +28,7 @@ function App() {
    
   
     <div className="App">
+
       <Router>
 
         
@@ -48,11 +52,13 @@ function App() {
             <Route path="/confirmation" element={<Confirmation />} />
             <Route path="/payment" element={<Pay/>} />
             <Route path="/success" element={<PaymentSuccess />} />
+            <Route path="/dashboard" element={<Admin />} />
 
           </Routes>
         </MainLayout>
 
       </Router>
+      
     </div>
   );
 }
