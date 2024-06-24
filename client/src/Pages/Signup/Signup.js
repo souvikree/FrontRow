@@ -36,11 +36,11 @@ const SignupComponent = () => {
           <div className="flex justify-center space-x-4 mb-2     ">
             <button className="flex items-center bg-white text-gray-800 font-bold rounded-lg px-4 py-2 hover:bg-gray-200 transition duration-300">
               Sign up with
-              <Icon icon="logos:google-icon" className="ml-2 text-xl" width={40}/>
+              <Icon icon="logos:google-icon" className="ml-2 text-xl" width={32}/>
             </button>
             <button className="flex items-center bg-blue-700 text-white font-bold rounded-lg px-4 py-2 hover:bg-blue-800 transition duration-300">
               Sign up with
-              <Icon icon="logos:facebook" className="ml-2 text-xl" width={44}/>
+              <Icon icon="logos:facebook" className="ml-2 text-xl" width={34}/>
             </button>
           </div>
 

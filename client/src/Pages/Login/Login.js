@@ -3,7 +3,7 @@ import TextInput from "../Icons/TextInput";
 import PasswordInput from "../Icons/PasswordInput";
 import { Link } from "react-router-dom";
 import logo from "../assets/FrontRow.png";
-import movieBackgroundVideo from "../assets/video.mp4"; 
+import movieBackgroundVideo from "../assets/video2.mp4"; 
 
 const LoginComponent = () => {
     return (
@@ -46,7 +46,7 @@ const LoginComponent = () => {
                             <Icon
                                 icon="logos:google-icon"
                                 className="ml-2 text-xl"
-                                width={40}
+                                width={32}
                             />
                         </button>
                         <button className="flex items-center bg-blue-700 text-white font-bold rounded-lg px-4 py-2 hover:bg-blue-800 transition duration-300">
@@ -54,7 +54,7 @@ const LoginComponent = () => {
                             <Icon
                                 icon="logos:facebook"
                                 className="ml-2 text-xl"
-                                width={44}
+                                width={34}
                             />
                         </button>
                     </div>

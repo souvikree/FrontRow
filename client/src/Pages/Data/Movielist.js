@@ -42,11 +42,11 @@ const Movielist = [
         trailer: "https://youtu.be/bK6ldnjE3Y0",
         date: "2023",
         cast1: "Cillian Murphy",
-        cast1Img: "https://upload.wikimedia.org/wikipedia/commons/thumb/8/8d/Cillian_Murphy_2017.jpg/800px-Cillian_Murphy_2017.jpg",
+        cast1Img: "https://i.abcnewsfe.com/a/a1dde558-3f86-4016-b751-2d7013195fa2/cillian-murphy-gty-jef-231205_1701807371366_hpMain_16x9.jpg?w=992",
         cast2: "Emily Blunt",
-        cast2Img: "https://upload.wikimedia.org/wikipedia/commons/thumb/0/0b/Emily_Blunt_-_Paris_-_Avril_2012.jpg/800px-Emily_Blunt_-_Paris_-_Avril_2012.jpg",
+        cast2Img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSlrBR4BlgX17UE4bP2IuFQaxblTVgCEx2DEA&s",
         cast3: "Robert Downey Jr.",
-        cast3Img: "https://upload.wikimedia.org/wikipedia/commons/thumb/1/11/Robert_Downey_Jr_June_2014.jpg/800px-Robert_Downey_Jr_June_2014.jpg"
+        cast3Img: "https://hips.hearstapps.com/hmg-prod/images/robert-downey-jr-attends-the-premiere-of-columbia-pictures-news-photo-1579211396.jpg"
     },
     {
         id: 3,
@@ -64,11 +64,11 @@ const Movielist = [
         trailer: "https://youtu.be/zSWdZVtXT7E",
         date: "2014",
         cast1: "Matthew McConaughey",
-        cast1Img: "https://upload.wikimedia.org/wikipedia/commons/thumb/2/26/Matthew_McConaughey_%282017%29.jpg/800px-Matthew_McConaughey_%282017%29.jpg",
+        cast1Img: "https://m.media-amazon.com/images/M/MV5BMTg0MDc3ODUwOV5BMl5BanBnXkFtZTcwMTk2NjY4Nw@@._V1_FMjpg_UX1000_.jpg",
         cast2: "Anne Hathaway",
-        cast2Img: "https://upload.wikimedia.org/wikipedia/commons/thumb/3/36/Anne_Hathaway_in_2017.png/800px-Anne_Hathaway_in_2017.png",
+        cast2Img: "https://cdn.britannica.com/14/147814-050-664180CF/Anne-Hathaway.jpg",
         cast3: "Jessica Chastain",
-        cast3Img: "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4d/Jessica_Chastain_Cannes_2014.jpg/800px-Jessica_Chastain_Cannes_2014.jpg"
+        cast3Img: "https://m.media-amazon.com/images/M/MV5BMTU1MDM5NjczOF5BMl5BanBnXkFtZTcwOTY2MDE4OA@@._V1_.jpg"
         
     },
     {
@@ -87,11 +87,11 @@ const Movielist = [
         trailer: "https://youtu.be/8hP9D6kZseM",
         date: "2010",
         cast1: "Leonardo DiCaprio",
-        cast1Img: "https://upload.wikimedia.org/wikipedia/commons/7/7f/Leonardo_DiCaprio_January_2014.jpg",
+        cast1Img: "https://i.pinimg.com/474x/4e/34/84/4e348498603a146d52cb97e1bc080bba.jpg",
         cast2: "Joseph Gordon-Levitt",
-        cast2Img: "https://upload.wikimedia.org/wikipedia/commons/thumb/5/52/Joseph_Gordon-Levitt_by_Gage_Skidmore.jpg/800px-Joseph_Gordon-Levitt_by_Gage_Skidmore.jpg",
+        cast2Img: "https://m.media-amazon.com/images/M/MV5BMTczNDUzMTg0M15BMl5BanBnXkFtZTcwNDg2NDQzNA@@._V1_.jpg",
         cast3: "Elliot Page",
-        cast3Img: "https://upload.wikimedia.org/wikipedia/commons/thumb/7/7a/Elliot_Page_2016.jpg/800px-Elliot_Page_2016.jpg"
+        cast3Img: "https://variety.com/wp-content/uploads/2023/06/GettyImages-1439352620.jpg"
     },
 ];
 
