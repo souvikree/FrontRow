@@ -1,14 +1,13 @@
 import React from "react";
-// import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-// import { faFacebookF, faTwitter, faGithub } from '@fortawesome/free-brands-svg-icons';
-// import { faFilm, faStar } from '@fortawesome/free-solid-svg-icons';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faFacebookF, faTwitter, faGithub } from '@fortawesome/free-brands-svg-icons';
+import { faFilm, faStar } from '@fortawesome/free-solid-svg-icons';
 import sujit from "../assets/1.png";
 import souvik from "../assets/2.jpg";
 import sourish from "../assets/3.jpg";
 import chandan from "../assets/4.jpg";
 import manomoy from "../assets/5.jpg";
-import ProfileCard from "./components/ProfileCard";
-// import Vector from "../assets/vector.png";
+import Vector from "../assets/vector.png";
 
 const teamMembers = [
   {
