@@ -1,73 +1,74 @@
-import React from 'react';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faFacebookF, faTwitter, faGithub } from '@fortawesome/free-brands-svg-icons';
-import { faFilm, faStar } from '@fortawesome/free-solid-svg-icons';
+import React from "react";
+// import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+// import { faFacebookF, faTwitter, faGithub } from '@fortawesome/free-brands-svg-icons';
+// import { faFilm, faStar } from '@fortawesome/free-solid-svg-icons';
 import sujit from "../assets/1.png";
 import souvik from "../assets/2.jpg";
 import sourish from "../assets/3.jpg";
 import chandan from "../assets/4.jpg";
 import manomoy from "../assets/5.jpg";
-import Vector from "../assets/vector.png";
+import ProfileCard from "./components/ProfileCard";
+// import Vector from "../assets/vector.png";
 
 const teamMembers = [
   {
-    name: 'Chandan Maity',
-    role: 'Fullstack Web Developer',
+    name: "Chandan Maity",
+    role: "Fullstack Web Developer",
     image: chandan,
     socialLinks: {
-      facebook: '#',
-      twitter: '#',
-      github: '#'
-    }
+      facebook: "#",
+      twitter: "#",
+      github: "#",
+    },
   },
   {
-    name: 'Manomoy Maity',
-    role: 'Fullstack Web Developer',
+    name: "Manomoy Maity",
+    role: "Fullstack Web Developer",
     image: manomoy,
     socialLinks: {
-      facebook: '#',
-      twitter: '#',
-      github: 'https://github.com/manomoymaity'
-    }
+      facebook: "#",
+      twitter: "#",
+      github: "https://github.com/manomoymaity",
+    },
   },
   {
-    name: 'Sourish Das',
-    role: 'Fullstack Web Developer',
+    name: "Sourish Das",
+    role: "Fullstack Web Developer",
     image: sourish,
     socialLinks: {
-      facebook: '#',
-      twitter: '#',
-      github: '#'
-    }
+      facebook: "#",
+      twitter: "#",
+      github: "#",
+    },
   },
   {
-    name: 'Souvik Ghosh',
-    role: 'Fullstack Web Developer',
+    name: "Souvik Ghosh",
+    role: "Fullstack Web Developer",
     image: souvik,
     socialLinks: {
-      facebook: '#',
-      twitter: '#',
-      github: '#'
-    }
+      facebook: "#",
+      twitter: "#",
+      github: "#",
+    },
   },
   {
-    name: 'Sujit Kumar Halder',
-    role: 'Fullstack Web Developer',
+    name: "Sujit Kumar Halder",
+    role: "Fullstack Web Developer",
     image: sujit,
     socialLinks: {
-      facebook: '#',
-      twitter: '#',
-      github: '#'
-    }
+      facebook: "#",
+      twitter: "#",
+      github: "#",
+    },
   },
 ];
 
 const AboutUs = () => {
   return (
-    <div className='bg-black '>
-      <div className='bg-white text-black rounded-lg p-8 m-8 ml-24 mb-0 '>
+    <div className="bg-white">
+      <div className='bg-black text-black rounded-lg p-8 m-8 ml-24 mb-0 '>
         <div className='grid grid-cols-2 gap-x-10 px-5 md:px-16'>
-          {/* Text Area */}
+          
           
           <div className='flex flex-col h-screen justify-center '>
             <h1 className='flex pl-10 text-5xl font-mono font-bold leading-tight tracking-wider text-gray-900'>FRONTROW</h1>
@@ -90,7 +91,7 @@ const AboutUs = () => {
             </p>
             <button className='shadow-lg mt-12 bg-blue-700 hover:bg-blue-600 text-white h-10 w-36 rounded-full self-start ml-10'>Support Us!</button>
           </div>
-          {/* Images */}
+         
           <div className='flex flex-col justify-center items-center h-screen'>
             <img className='w-full h-auto object-cover' src={Vector} alt="Vector Illustration" />
           </div>
@@ -126,8 +127,9 @@ const AboutUs = () => {
           </div>
         </section>
       </div>
+    
     </div>
   );
-}
+};
 
 export default AboutUs;
