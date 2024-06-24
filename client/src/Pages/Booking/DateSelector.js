@@ -35,7 +35,7 @@ const DateSelector = () => {
   const updateVisibleDates = () => {
     // Generate dates for display (Current date to current date + 9)
     const currentDate = new Date().getDate(); // Get current date
-    const dates = Array.from({ length: 8 }, (_, i) => currentDate + i)
+    const dates = Array.from({ length: 7 }, (_, i) => currentDate + i)
       .map(date => date.toString())
       .filter(date => date <= 31); // Ensure dates are within valid month range
 
@@ -49,12 +49,12 @@ const DateSelector = () => {
 
   // Generate dates for display (Current date to current date + 7)
   const currentDate = new Date().getDate(); // Get current date
-  const dates = Array.from({ length: 8 }, (_, i) => currentDate + i)
+  const dates = Array.from({ length: 7 }, (_, i) => currentDate + i)
     .map(date => date.toString())
     .filter(date => date <= 31); // Ensure dates are within valid month range
 
   return (
-    <div className="bg-black pt-10 pl-24">
+    <div className="bg-black pt-16  pl-24">
       <div className="flex items-center space-x-4 overflow-hidden relative">
         <div className="flex space-x-4 overflow-x-hidden" ref={datesContainerRef}>
           {dates.map((date, index) => (

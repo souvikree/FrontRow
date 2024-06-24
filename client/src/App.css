@@ -1,6 +1,15 @@
 .App {
   text-align: center;
 }
+body {
+  overflow-x: hidden; /* Prevent horizontal scrolling on the entire page */
+}
+
+/* Or for specific elements causing the issue */
+.scrolling-container {
+  overflow-x: hidden;
+}
+
 
 .App-logo {
   height: 40vmin;
@@ -34,5 +43,32 @@
   }
   to {
     transform: rotate(360deg);
+  }
+}
+/* Extra small screens (phones, 375px wide and below) */
+@media (max-width: 375px) {
+  .container {
+    padding: 0 1rem; /* Adjust as needed for smaller screens */
+  }
+}
+
+/* Small screens (phones, 414px wide and below) */
+@media (max-width: 414px) {
+  .container {
+    padding: 0 1.5rem; /* Adjust as needed for small phones */
+  }
+}
+
+/* Medium screens (tablets, 768px wide and below) */
+@media (max-width: 768px) {
+  .container {
+    padding: 0 2rem; /* Adjust as needed for tablets */
+  }
+}
+
+/* Large screens (desktops, 1024px wide and below) */
+@media (max-width: 1024px) {
+  .container {
+    padding: 0 2.5rem; /* Adjust as needed for large screens */
   }
 }
