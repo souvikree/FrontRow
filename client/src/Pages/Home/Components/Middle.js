@@ -4,22 +4,18 @@ import { HomeMovieList } from './Data/HomeMovieList';
 
 const Middle = () => {
   // Get the last 21 movies from the HomeMovieList
-  const last20Movies = HomeMovieList.slice(-20,-4); // Adjusted to 21 movies
+  const last20Movies = HomeMovieList.slice(-20,-6); // Adjusted to 21 movies
 
   return (
     <>
-      <div>
-        <div className='flex justify-start'>
-        <h1 className=' ml-16 text-2xl text-[#E1E6F0] font-sans font-bold my-7'>Trending in India</h1>
-        </div>
-        <div className='flex justify-center ml-16' >
-        <div className='flex flex-wrap mb-6'>
+      <div className='flex flex-wrap'>
+        <h1 className='text-2xl ml-12 text-[#E1E6F0] font-sans font-bold'>Trending in India</h1>
+        <div className='grid gap-4 p-4 mx-auto sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 xl:grid-cols-7 2xl:grid-cols-8'>
           {
             last20Movies.map((val, idx) => {
               return <MovieCardContainer key={idx} posterurl={val.posterurl} />
             })
           }
-        </div>
         </div>
       </div>
       <div>
