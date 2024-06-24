@@ -35,9 +35,9 @@ const Profile = ({ user = def }) => {
                         Logout
                     </button>
                 </div>
-                <div className="border-b border-gray-600 w-screen ">
-                    <div className="flex top-0"> 
-                        <div className="w-16 h-16 rounded-full overflow-hidden mr-4">
+                <div className="border-b border-gray-600 w-screen flex flex-wrap gap-2 pb-2">
+                    <div className="flex top-0 pt-4"> 
+                        <div className="w-20 h-20 rounded-full overflow-hidden mr-4">
                             <img src={profileImage} alt="Profile" className="object-cover w-full h-full" />
                         </div>
                         
@@ -54,7 +54,7 @@ const Profile = ({ user = def }) => {
                 </div>
                 
                 <div>
-                    <h3 className="text-xl font-semibold mb-4 flex">Booked Tickets:</h3>
+                    <h3 className="text-xl font-semibold mb-4 flex pt-2">Booked Tickets:</h3>
                     <ul className="pl-2 w-screen max-w-7xl">
                         {user.bookedTickets.map((ticket, index) => (
                             <li key={index} className="mb-6">

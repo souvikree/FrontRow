@@ -3,7 +3,7 @@ import TextInput from "../Icons/TextInput";
 import PasswordInput from "../Icons/PasswordInput";
 import { Link } from "react-router-dom";
 import logo from "../assets/FrontRow.png";
-import movieBackgroundVideo from "../assets/video.mp4"; // Replace with your video file
+import movieBackgroundVideo from "../assets/video.mp4"; 
 
 const LoginComponent = () => {
     return (

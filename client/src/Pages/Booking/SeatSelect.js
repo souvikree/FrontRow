@@ -2,58 +2,52 @@ import React, { useState, useEffect } from 'react';
 import { useNavigate, useLocation } from 'react-router-dom';
 import seatImage from "../assets/screen.png"; 
 
+import Confirmation from './Confirmation';
+
 const SeatSelect = () => {
   const [selected, setSelected] = useState([]);
-  const [selectedCount, setSelectedCount] = useState(0); // State to track selected seats count
-  const [totalSum, setTotalSum] = useState(0); // State to track total sum of selected seats
+  const [selectedCount, setSelectedCount] = useState(0);
+  const [totalSum, setTotalSum] = useState(0);
+  const [showConfirmation, setShowConfirmation] = useState(false); // State to control the confirmation modal
   const navigate = useNavigate();
   const location = useLocation();
 
-  // Extract totalSeats from location state
   const totalSeats = location.state && location.state.totalSeats ? location.state.totalSeats : 0;
 
-  // Define seat prices
   const goldSeatPrice = 200;
   const silverSeatPrice = 100;
 
-  // Dummy seat data 
   const seats = Array.from({ length: 160 }, (_, index) => 160 - index);
-
-  // Define the maximum number of columns
   const maxColumns = 20;
+  const goldSeats = seats.slice(0, maxColumns * 2);
+  const regularSeats = seats.slice(maxColumns * 2);
 
-  // Divide seats into gold and regular sections
-  const goldSeats = seats.slice(0, maxColumns * 2); // First 40 seats for gold section
-  const regularSeats = seats.slice(maxColumns * 2); // Remaining seats for regular section
-
-  // Handle click on a seat
   const handleSeatClick = (seatNumber, seatPrice) => {
     if (selected.includes(seatNumber)) {
       setSelected(selected.filter((seat) => seat !== seatNumber));
       setTotalSum(totalSum - seatPrice);
     } else {
-      if (selected.length < totalSeats) { // Check if total selected seats are less than totalSeats
+      if (selected.length < totalSeats) {
         setSelected([...selected, seatNumber]);
         setTotalSum(totalSum + seatPrice);
       }
     }
   };
 
-  // Update selected seats count when selected state changes
   useEffect(() => {
     setSelectedCount(selected.length);
   }, [selected]);
 
-  // Handle confirmation of seat selection
   const handleConfirmSelection = () => {
-    // Ensure exactly totalSeats are selected before confirming
     if (selected.length === totalSeats) {
-      // Here you can perform further actions, such as submitting data or closing the modal
-      console.log("Selected Seats Count:", selectedCount);
-      navigate('/confirmation', { state: { selectedSeats: selected, totalSum } }); // Navigate to confirmation page with selected seats and total sum
+      setShowConfirmation(true); // Show the confirmation modal
     } else {
       alert(`Please select exactly ${totalSeats} seat(s)!`);
     }
+  };
+
+  const handleCloseModal = () => {
+    setShowConfirmation(false); // Close the confirmation modal
   };
 
   return (
@@ -61,7 +55,6 @@ const SeatSelect = () => {
       <h1 className="text-2xl font-bold mb-4 mt-4">Select Your Seats</h1>
       <p className="mb-4">You can select {totalSeats} seat(s)</p>
 
-      {/* Gold Seats Section */}
       <div>
         <h2 className="text-sm font-bold text-yellow-500 mb-1 mt-4 flex">Gold Seats - Rs. {goldSeatPrice}</h2>
         <div className="w-full border-t-2 border-yellow-500 pt-2">
@@ -86,7 +79,6 @@ const SeatSelect = () => {
         </div>
       </div>
 
-      {/* Silver Seats Section */}
       <div>
         <h2 className="text-sm font-bold text-gray-400 mb-1 mt-6 flex">Silver Seats - Rs. {silverSeatPrice}</h2>
         <div className="w-full border-t-2 border-gray-400 pt-2">
@@ -111,9 +103,8 @@ const SeatSelect = () => {
         </div>
       </div>
 
-      <img src={seatImage} alt="FrontRow Screen" className="mt-1 w-80 mb-6 " style={{ maxWidth: '100%', height: 'auto' }} />
+      <img src={seatImage} alt="FrontRow Screen" className="mt-1 w-80 mb-6" style={{ maxWidth: '100%', height: 'auto' }} />
 
-      {/* Display selected seats count and Confirm Selection button */}
       <div className="fixed bottom-4 left-4 right-4 ml-80 mr-80 bg-white p-4 border border-gray-300 rounded-lg flex justify-between items-center">
         <div>
           <span className="font-semibold text-black">Total: Rs. {totalSum}</span>
@@ -126,6 +117,14 @@ const SeatSelect = () => {
           Confirm Selection
         </button>
       </div>
+
+      {showConfirmation && (
+        <Confirmation
+          selectedSeats={selected}
+          totalSum={totalSum}
+          onClose={handleCloseModal}
+        />
+      )}
     </div>
   );
 };
