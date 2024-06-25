@@ -3,9 +3,32 @@ import interstellarPoster from './images/Intersteller.jpg';
 import inceptionPoster from './images/inception.jpg';
 import Openhime from './images/Openheimer.jpg';
 import Avatar2 from './images/Avatar2.jpg';
+import kalki from "./images/kalki.jpg"
 const Movielist = [
     {
         id: 1,
+        name: "Kalki 2898 AD",
+        lang1: "Hindi",
+        rating: 5,
+        duration: 165,
+        desc: "When the world is taken over by darkness. A force will rise. A modern avatar of the Hindu god Vishnu, is said to have descended on Earth to protect the world from evil forces.",
+        starring: "Prabhas, Deepika Padukone, Amitabh Bachchan",
+        genres: "Sci-Fi",
+        tag1: "Action",
+        tag2: "Sci-Fi",
+        tag3: "Mythology",
+        poster: kalki,
+        trailer: "https://youtu.be/kQDd1AhGIHk",
+        date: "2024",
+        cast1: "Prabhas",
+        cast1Img: "https://img.indiaforums.com/person/640x480/1/2525-prabhas.jpg?c=4bM0D6",
+        cast2: "Deepika Padukone",
+        cast2Img: "https://in.bmscdn.com/iedb/artist/images/website/poster/large/deepika-padukone-2822-12-09-2017-06-31-43.jpg",
+        cast3: "Amitabh Bachchan",
+        cast3Img: "https://in.bmscdn.com/iedb/artist/images/website/poster/large/amitabh-bachchan-138-12-09-2017-02-34-37.jpg"
+    },
+    {
+        id: 2,
         name: "Avatar: The Way of Water",
         lang1: "English",
         rating: 4.5,
@@ -27,7 +50,7 @@ const Movielist = [
         cast3Img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT1o7heiF7AHelnkDafdFdHOEqjT50eRyoaFQ&s"
     },
     {
-        id: 2,
+        id: 3,
         name: "Oppenheimer",
         lang1: "English",
         rating: 4.7,
@@ -49,7 +72,7 @@ const Movielist = [
         cast3Img: "https://hips.hearstapps.com/hmg-prod/images/robert-downey-jr-attends-the-premiere-of-columbia-pictures-news-photo-1579211396.jpg"
     },
     {
-        id: 3,
+        id: 4,
         name: "Interstellar",
         lang1: "English",
         rating: 4.6,
@@ -72,7 +95,7 @@ const Movielist = [
         
     },
     {
-        id: 4,
+        id: 5,
         name: "Inception",
         lang1: "English",
         rating: 4.8,
