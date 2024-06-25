@@ -16,7 +16,7 @@ import Confirmation from './Pages/Booking/Confirmation';
 import Pay from './Pages/Payment/Pay';
 import PaymentSuccess from './Pages/Payment/PaymentSuccess';
 import CatagoryPage from './Pages/Catagory/CatagoryPage';
-import Admin from './Pages/Admin/Admin';
+// import Admin from './Pages/Admin/Admin';
 import AdminMovie from './Pages/Admin/component/AdminMovie';
 import AdminHome from './Pages/Admin/component/AdminHome';
 
@@ -54,9 +54,9 @@ function App() {
             <Route path="/confirmation" element={<Confirmation />} />
             <Route path="/payment" element={<Pay/>} />
             <Route path="/success" element={<PaymentSuccess />} />
-            <Route path="/admin/dashboard" element={<Admin />} />
+            {/* <Route path="/admin/dashboard" element={<Admin />} /> */}
             <Route path="/admin/dashboard/movie" element={<AdminMovie />} />
-            <Route path="/admin/dashboard/adminhome" element={<AdminHome/>} />
+            <Route path="/admin/dashboard" element={<AdminHome/>} />
 
           </Routes>
         </MainLayout>
