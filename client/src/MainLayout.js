@@ -9,7 +9,7 @@ const MainLayout = ({ children }) => {
 
   // Function to determine if Navbar, LeftNav, and Footer should be hidden
   const shouldHideNavAndFooter = () => {
-    return location.pathname === '/login' || location.pathname === '/signup';
+    return location.pathname === '/login' || location.pathname === '/signup' || location.pathname=== '/admin/dashboard'|| location.pathname=== '/admin/dashboard/movie' || location.pathname=== '/admin/dashboard/adminhome';
   };
 
   return (
