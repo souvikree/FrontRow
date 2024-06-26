@@ -1,9 +1,12 @@
 import React from 'react';
 
+
+
 import { Icon } from '@iconify/react';
 
 
 import Catagory from '../Home/Components/Catagory';
+
 
 
 const Search = () => {
@@ -19,12 +22,15 @@ const Search = () => {
               placeholder="Search Movies" 
               required 
             />
+
           </div>
         </div>
         <div className='px-5 pb-6 overflow-y-auto mx-10'>
           <Catagory />
         </div>
       </div>
+      
+      
     </>
   );
 }

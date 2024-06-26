@@ -16,19 +16,16 @@ import Confirmation from './Pages/Booking/Confirmation';
 import Pay from './Pages/Payment/Pay';
 import PaymentSuccess from './Pages/Payment/PaymentSuccess';
 import CatagoryPage from './Pages/Catagory/CatagoryPage';
-
+import AdminMovie from './Pages/Admin/component/AdminMovie';
+import AdminHome from './Pages/Admin/component/AdminHome';
+import AdminLogin from './Pages/Admin/component/AdminLogin';
 
 function App() {
 
   return (
-    
-   
-  
     <div className="App">
+
       <Router>
-
-        
-
         <MainLayout>
           <Routes>
             <Route path="/" element={<Home />} />
@@ -37,7 +34,9 @@ function App() {
             <Route path='/profile' element={<Profile />}/>
 
             <Route path="/Catagory" element={<CatagoryPage />} />
-
+            {/* my change */}
+            <Route path="/admin" element={<AdminLogin />} />
+            {/* my change */}
             <Route path="/login" element={<LoginComponent />} />
             <Route path="/signup" element={<SignupComponent />} />
             <Route path="/explore" element={<Search />} />
@@ -48,11 +47,15 @@ function App() {
             <Route path="/confirmation" element={<Confirmation />} />
             <Route path="/payment" element={<Pay/>} />
             <Route path="/success" element={<PaymentSuccess />} />
+            {/* <Route path="/admin/dashboard" element={<Admin />} /> */}
+            <Route path="/admin/dashboard/movie" element={<AdminMovie />} />
+            <Route path="/admin/dashboard" element={<AdminHome/>} />
 
           </Routes>
         </MainLayout>
 
       </Router>
+      
     </div>
   );
 }
