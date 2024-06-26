@@ -1,56 +1,92 @@
-import React, { useState } from "react";
-import "font-awesome/css/font-awesome.min.css";
+import React, { useState, useEffect } from "react";
+import axios from 'axios';
 import ReactPlayer from "react-player";
-import { Link, useNavigate } from "react-router-dom";
-import IconText from "../Icons/IconText";
-import { Icon } from "@iconify/react/dist/iconify.js";
+import { useNavigate, useParams } from "react-router-dom";
 import { Oval } from "react-loader-spinner";
+import IconText from "../Icons/IconText";
+import { Icon } from "@iconify/react";
+import { toast, ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 const defaultMovie = {
   name: "Unknown",
-  lang: "Unknown",
+  languages: ["Unknown"],
   duration: 0,
-  desc: "No description available.",
+  description: "No description available.",
   trailer: "",
+  genres: ["Unknown"],
   id: 0,
+  isActive: false // Add default isActive status
 };
 
-const MovieDetails = ({ movie = defaultMovie }) => {
+const MovieDetails = () => {
+  const [movie, setMovie] = useState(defaultMovie);
   const [mute, setMute] = useState(true);
-  const [loading, setLoading] = useState(false);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(false); 
   const navigate = useNavigate();
+  const { movieId } = useParams();
+
+  useEffect(() => {
+    const fetchMovieDetails = async () => {
+      try {
+        const response = await axios.get(`/api/admin/movies/${movieId}`);
+        setMovie(response.data);
+      } catch (error) {
+        console.error('Error fetching movie details:', error);
+        setError(true);
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    fetchMovieDetails();
+  }, [movieId]);
 
   const handleBookingClick = () => {
-    setLoading(true);
-    setTimeout(() => {
-      navigate(`/booking/${movie.id}`);
-    }, 2000); // Simulate loading time, adjust the duration as needed
+    if (movie.isActive) {
+      setLoading(true);
+      setTimeout(() => {
+        navigate(`/booking/${movieId}`, { state: { movie } });
+      }, 2000);
+    } else {
+      toast.info("Bookings will be added in few days", {
+        position: toast.POSITION.TOP_CENTER,
+        autoClose: 3000
+      });
+    }
   };
+
+  if (loading) {
+    return (
+      <div className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-75 z-50">
+        <Oval
+          height={80}
+          width={80}
+          color="#ffffff"
+          secondaryColor="#4fa94d"
+          strokeWidth={2}
+          strokeWidthSecondary={2}
+        />
+      </div>
+    );
+  }
+
+  if (error) {
+    return (
+      <div className="text-white">Error fetching movie details. Please try again later.</div>
+    );
+  }
 
   return (
     <div className="relative flex flex-col justify-start md:flex-row mt-0 h-full w-full bg-[#0c111b] rounded-lg overflow-hidden">
-      {loading && (
-        <div className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-75 z-50">
-          <Oval
-            height={80}
-            width={80}
-            color="#ffffff"
-            wrapperStyle={{}}
-            wrapperClass=""
-            visible={true}
-            ariaLabel="oval-loading"
-            secondaryColor="#4fa94d"
-            strokeWidth={2}
-            strokeWidthSecondary={2}
-          />
-        </div>
-      )}
+      <ToastContainer />
       <div className="w-full md:w-2/5 p-9 md:p-14 pt-10 px-[36px]">
         <h1 className="text-white text-3xl font-bold text-left">{movie.name}</h1>
         <div className="text-white text-base font-semibold mt-6 pl-2 text-left">
-          {movie.lang1} • {movie.duration}m • {movie.genres}
+          {movie.languages.join(", ")} • {movie.duration}m • {movie.genres.join(", ")}
         </div>
-        <div className="text-gray-200 mt-4 ml-2 text-left">{movie.desc}</div>
+        <div className="text-gray-200 mt-4 ml-2 text-left">{movie.description}</div>
         <button
           onClick={handleBookingClick}
           className="mt-7 mb-7 rounded-lg text-base flex items-center h-14 bg-red-700 hover:bg-red-600 px-6"

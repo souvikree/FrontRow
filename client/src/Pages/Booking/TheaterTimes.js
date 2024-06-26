@@ -1,7 +1,12 @@
 import React, { useState } from 'react';
+import { useLocation, useNavigate } from 'react-router-dom';
 import SeatCounter from './SeatCounter';
 
 const TheaterTimes = () => {
+  const { state } = useLocation();
+  const { movie } = state;
+  const navigate = useNavigate();
+
   const theaters = [
     {
       name: "Acropolis Mall",
@@ -29,6 +34,21 @@ const TheaterTimes = () => {
     setIsModalOpen(false);
   };
 
+  const handleProceed = (selectedSeats, totalSum) => {
+    const theater = theaters[selectedTime.theaterIndex];
+    const showtime = theater.showtimes[selectedTime.timeIndex];
+
+    navigate(`/confirmation`, {
+      state: {
+        movie,
+        theater: theater.name,
+        showtime,
+        selectedSeats,
+        totalSum,
+      },
+    });
+  };
+
   return (
     <div className="p-6 bg-black pl-24 pt-10">
       {theaters.map((theater, theaterIndex) => (
@@ -53,7 +73,11 @@ const TheaterTimes = () => {
           </div>
         </div>
       ))}
-      <SeatCounter isOpen={isModalOpen} onClose={closeModal} />
+      <SeatCounter
+        isOpen={isModalOpen}
+        onClose={closeModal}
+        onProceed={handleProceed}
+      />
     </div>
   );
 };

@@ -1,11 +1,34 @@
-import React from 'react';
-const MovieCard1 = (props) => {
+import React, { useState, useEffect } from 'react';
+
+const MovieCard1 = ({ movieId }) => {
+  const [movie, setMovie] = useState(null);
+
+  useEffect(() => {
+    const fetchMovieDetails = async () => {
+      try {
+        const response = await fetch(`/api/admin/movie/${movieId}`); // Replace with your actual endpoint
+        if (!response.ok) {
+          throw new Error('Movie not found');
+        }
+        const data = await response.json();
+        setMovie(data);
+      } catch (error) {
+        console.error('Error fetching movie details:', error);
+      }
+    };
+
+    fetchMovieDetails();
+  }, [movieId]);
+
+  if (!movie) {
+    return null; // or loading indicator
+  }
+
   return (
     <div className='h-[200px] w-[150px] rounded-xl overflow-hidden mb-6 group'>
-        <img src={props.poster} alt="" className='bg-cover rounded-lg'/>
-        
+      <img src={movie.image} alt={movie.name} className='bg-cover rounded-lg' />
     </div>
-  )
-}
+  );
+};
 
 export default MovieCard1;

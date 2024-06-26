@@ -1,15 +1,23 @@
 import React from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useLocation, useNavigate } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faTicketAlt, faMoneyBillWave, faFilm } from '@fortawesome/free-solid-svg-icons';
 
 const GST_RATE = 0.18;
 
 const Confirmation = ({ selectedSeats, totalSum, onClose }) => {
+  const location = useLocation();
   const navigate = useNavigate();
+
+ 
+  const { movie, theater, showtime } = location.state || {};
 
   const gstAmount = totalSum * GST_RATE;
   const totalAmount = totalSum + gstAmount;
+
+  const handlePayment = () => {
+    navigate('/payment', { state: { totalAmount, selectedSeats } });
+  };
 
   return (
     <div className="fixed inset-0 bg-black bg-opacity-75 flex justify-center items-center z-50">
@@ -17,23 +25,37 @@ const Confirmation = ({ selectedSeats, totalSum, onClose }) => {
         <h1 className="text-2xl font-bold mb-4">Booking Confirmation</h1>
         <div className="mb-4">
           <p className="flex items-center font-bold">
+            <FontAwesomeIcon icon={faFilm} className="mr-2" />
+            Movie: {movie ? movie.name : 'Movie Name Unavailable'}
+          </p>
+          <p className="flex items-center font-bold">
             <FontAwesomeIcon icon={faTicketAlt} className="mr-2" />
-            Total Seats : {selectedSeats.length}
+            Theater: {theater || 'Theater Name Unavailable'}
+          </p>
+          <p className="flex items-center font-bold">
+            <FontAwesomeIcon icon={faTicketAlt} className="mr-2" />
+            Showtime: {showtime || 'Showtime Unavailable'}
           </p>
         </div>
         <div className="mb-4">
           <p className="flex items-center font-bold">
             <FontAwesomeIcon icon={faTicketAlt} className="mr-2" />
-            Selected Seats : {selectedSeats.join(', ')}
+            Total Seats: {selectedSeats.length}
+          </p>
+        </div>
+        <div className="mb-4">
+          <p className="flex items-center font-bold">
+            <FontAwesomeIcon icon={faTicketAlt} className="mr-2" />
+            Selected Seats: {selectedSeats.join(', ')}
           </p>
         </div>
         <div className="mb-4">
           <div className="flex justify-between">
-            <p className="font-bold">Amount :</p>
+            <p className="font-bold">Amount:</p>
             <p>Rs. {totalSum.toFixed(2)}</p>
           </div>
           <div className="flex justify-between">
-            <p className="font-bold">GST ({(GST_RATE * 100).toFixed(2)}%) :</p>
+            <p className="font-bold">GST ({(GST_RATE * 100).toFixed(2)}%):</p>
             <p>Rs. {gstAmount.toFixed(2)}</p>
           </div>
         </div>
@@ -51,7 +73,7 @@ const Confirmation = ({ selectedSeats, totalSum, onClose }) => {
             Cancel
           </button>
           <button
-            onClick={() => navigate('/payment', { state: { totalAmount, selectedSeats } })}
+            onClick={handlePayment}
             className="bg-red-800 text-white px-4 py-2 rounded hover:bg-red-900 focus:outline-none"
           >
             Proceed to Payment

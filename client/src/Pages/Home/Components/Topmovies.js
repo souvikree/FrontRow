@@ -1,26 +1,46 @@
 import React, { useState, useEffect } from 'react';
+import axios from 'axios';
+import { useNavigate } from 'react-router-dom'; // Import useNavigate hook
 import MovieCard1 from './MovieCard1';
-import { HomeMovieList } from './Data/HomeMovieList';
 
 const Topmovies = () => {
-  const moviesWithAverageRating = HomeMovieList.map(movie => ({
-    ...movie,
-    averageRating: movie.ratings.reduce((acc, curr) => acc + curr, 0) / movie.ratings.length
-  }));
-
-  const sortedMovies = moviesWithAverageRating.sort((a, b) => b.averageRating - a.averageRating);
-
+  const [movies, setMovies] = useState([]);
   const [moviesPerRow, setMoviesPerRow] = useState(2);
+  const [currentRow, setCurrentRow] = useState(0);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(false);
+  const navigate = useNavigate(); // Initialize useNavigate hook
+
+  useEffect(() => {
+    const fetchMovies = async () => {
+      try {
+        const response = await axios.get('/api/admin/movies/active');
+        const moviesData = response.data;
+
+        // Assuming moviesData structure from backend
+        const sortedMovies = moviesData.sort((a, b) => b.releaseDate - a.releaseDate); // Adjust sorting as needed
+
+        setMovies(sortedMovies);
+      } catch (error) {
+        console.error('Error fetching movies:', error);
+        setError(true);
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    fetchMovies();
+  }, []);
 
   const updateMoviesPerRow = () => {
     if (window.innerWidth >= 1200) {
-      setMoviesPerRow(7); 
+      setMoviesPerRow(7);
     } else if (window.innerWidth >= 992) {
-      setMoviesPerRow(6); 
+      setMoviesPerRow(6);
     } else if (window.innerWidth >= 768) {
-      setMoviesPerRow(5); 
+      setMoviesPerRow(5);
     } else {
-      setMoviesPerRow(3); 
+      setMoviesPerRow(3);
     }
   };
 
@@ -32,9 +52,7 @@ const Topmovies = () => {
     };
   }, []);
 
-  const [currentRow, setCurrentRow] = useState(0);
-
-  const totalRows = Math.ceil(sortedMovies.length / moviesPerRow);
+  const totalRows = Math.ceil(movies.length / moviesPerRow);
 
   const prevRow = () => {
     if (currentRow > 0) {
@@ -49,28 +67,33 @@ const Topmovies = () => {
   };
 
   const startIndex = currentRow * moviesPerRow;
-  const endIndex = Math.min(startIndex + moviesPerRow, sortedMovies.length);
+  const endIndex = Math.min(startIndex + moviesPerRow, movies.length);
 
-  const moviesToShow = sortedMovies.slice(startIndex, endIndex);
+  const moviesToShow = movies.slice(startIndex, endIndex);
+
+  if (loading) {
+    return <div className='text-white'>Loading movies...</div>;
+  }
+
+  if (error) {
+    return <div className='text-white'>Error fetching movies. Please try again later.</div>;
+  }
 
   return (
-
     <div className='bg-black flex flex-wrap'>
-      <h2 className='text-2xl text-center text-[#E1E6F0] font-sans font-bold py-4 flex justify-start pl-20'>Top Rated Movies</h2>
+      <h2 className='text-2xl text-center text-[#E1E6F0] font-sans font-bold py-4 flex justify-start pl-20'>Available Movies</h2>
       <div className='relative mx-auto px-4 ml-2'>
         <div className="flex ml-16 gap-4 pb-4">
           {moviesToShow.map((movie, idx) => (
-            <div key={movie.id} className={`flex-none ${idx !== 0 ? 'ml-4' : ''} relative`}>
-              <MovieCard1 poster={movie.poster} />
-              <span className="absolute bottom-2 -left-8 bg-transparent rounded-md text-gray-300 text-8xl font-bold p-2">{startIndex + idx + 1}</span>
+            <div key={movie._id} className={`flex-none ${idx !== 0 ? 'ml-4' : ''} relative`} onClick={() => navigate(`/movie/${movie._id}`)}>
+              <MovieCard1 image={movie.image} />
+              
             </div>
           ))}
-
-
         </div>
         {/* Left Arrow */}
         <button
-          className={`absolute top-24  transform -translate-y-1/2 left-16 bg-gray-800 bg-opacity-75 text-white rounded-full p-3 hover:bg-opacity-100 transition ${currentRow === 0 ? 'hidden' : ''}`}
+          className={`absolute top-24 transform -translate-y-1/2 left-16 bg-gray-800 bg-opacity-75 text-white rounded-full p-3 hover:bg-opacity-100 transition ${currentRow === 0 ? 'hidden' : ''}`}
           onClick={prevRow}
         >
           <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
