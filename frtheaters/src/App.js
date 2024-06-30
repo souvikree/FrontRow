@@ -1,4 +1,6 @@
+
 import React from 'react';
+
 import './App.css';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import LocationSelection from './pages/TheaterRegister/LocationSelection';
@@ -6,6 +8,7 @@ import Home from './pages/TheaterOwner/Home';
 import LeftDash from './pages/TheaterOwner/LeftDash';
 import Topbar from './pages/TheaterOwner/Topbar';
 import Theater from './pages/TheaterOwner/Theater';
+
 
 const App=()=> {
   return (
@@ -20,7 +23,7 @@ const App=()=> {
 
       </Routes>
      </Router>
-      
+
     </div>
   );
 }
