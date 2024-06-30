@@ -5,6 +5,7 @@ import LocationSelection from './pages/TheaterRegister/LocationSelection';
 import Home from './pages/TheaterOwner/Home';
 import LeftDash from './pages/TheaterOwner/LeftDash';
 import Topbar from './pages/TheaterOwner/Topbar';
+import Theater from './pages/TheaterOwner/Theater';
 
 const App=()=> {
   return (
@@ -15,6 +16,8 @@ const App=()=> {
       <Routes>
       <Route path='/dashboard' element={<LocationSelection/>}></Route>
       <Route path='/home' element={<Home/>}></Route>
+      <Route path='/theater' element={<Theater/>}></Route>
+
       </Routes>
      </Router>
       
