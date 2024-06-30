@@ -47,12 +47,7 @@ const Theater = () => {
           className="mb-4"
           placeholder="Search for a theater..."
         />
-        {selectedMovie && selectedTheater && (
-          <div>
-            <h2 className="text-xl">Selected Movie and Theater:</h2>
-            
-          </div>
-        )}
+       
       </div>
     </div>
   );
