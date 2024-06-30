@@ -50,8 +50,7 @@ const Theater = () => {
         {selectedMovie && selectedTheater && (
           <div>
             <h2 className="text-xl">Selected Movie and Theater:</h2>
-            <p>Movie: {selectedMovie.label}</p>
-            <p>Theater: {selectedTheater.label}</p>
+            
           </div>
         )}
       </div>
