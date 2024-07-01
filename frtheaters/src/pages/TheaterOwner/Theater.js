@@ -47,7 +47,6 @@ const Theater = () => {
           className="mb-4"
           placeholder="Search for a theater..."
         />
-       
       </div>
     </div>
   );
