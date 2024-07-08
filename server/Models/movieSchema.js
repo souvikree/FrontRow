@@ -59,7 +59,11 @@ const movieSchema = new mongoose.Schema({
   isActive: { 
       type: Boolean, 
       default: false 
-    }
+    },
+    showtimes: [{
+      type: mongoose.Schema.Types.ObjectId,
+      ref: 'Showtime'
+    }]
   
  
 });

@@ -1,11 +1,42 @@
+import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom'; 
 import { Icon } from "@iconify/react";
 import TextInput from "../Icons/TextInput";
 import PasswordInput from "../Icons/PasswordInput";
 import { Link } from "react-router-dom";
 import logo from "../assets/FrontRow.png";
 import movieBackgroundVideo from "../assets/video2.mp4"; 
+import axios from 'axios'; 
+import { toast, ToastContainer } from 'react-toastify'; 
+import 'react-toastify/dist/ReactToastify.css';
 
 const LoginComponent = () => {
+    const [email, setEmail] = useState('');
+    const [password, setPassword] = useState('');
+    const navigate = useNavigate();
+
+    const handleLogin = async (event) => {
+        event.preventDefault();
+        try {
+            console.log("this is email",email)
+            console.log("this is pass",password)
+            const response = await axios.post('http://localhost:8000/api/login', { email, password }, { withCredentials: true });
+            const token = response.data.token;
+            localStorage.setItem('token', token);
+            if (response.status === 202) {
+                toast.success("Login successful");
+                navigate('/'); 
+            }
+        } catch (error) {
+            console.error("Error logging in:", error); // Ensure the error is logged to the console
+            if (error.response && error.response.status === 400) {
+                toast.error("Invalid credentials");
+            } else {
+                toast.error("An error occurred. Please try again.");
+            }
+        }
+    };
+
     return (
         <div className="relative min-h-screen flex items-center justify-center bg-gradient-to-r from-gray-900 via-black to-gray-900 text-white">
             {/* Background Video */}
@@ -66,12 +97,14 @@ const LoginComponent = () => {
                     </div>
 
                     {/* Form Section */}
-                    <form className="space-y-3">
+                    <form className="space-y-3" onSubmit={handleLogin}>
                         {/* Email/Username Input */}
                         <div>
                             <TextInput
                                 label="Email or Username"
                                 placeholder="Enter your email or username"
+                                value={email}
+                                onChange={(e) => setEmail(e.target.value)}
                                 className="py-2 px-4"
                             />
                         </div>
@@ -81,6 +114,8 @@ const LoginComponent = () => {
                             <PasswordInput
                                 label="Password"
                                 placeholder="Enter your password"
+                                value={password}
+                                onChange={(e) => setPassword(e.target.value)}
                                 className="py-2 px-4"
                             />
                         </div>
@@ -118,6 +153,9 @@ const LoginComponent = () => {
                     </p>
                 </div>
             </div>
+
+            {/* Toast Container */}
+            <ToastContainer />
         </div>
     );
 };

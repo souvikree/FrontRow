@@ -1,19 +1,20 @@
 import React from 'react';
 
-const defaultImage = 'path-to-your-default-image-url'; // Replace with your default image URL
+const defaultImage = 'https://i.ibb.co/4pDNDk1/avatar.png'; // Default image URL
 
 const CastDetails = ({ movie }) => {
-  const cast = movie.cast || []; // Assuming `cast` is an array of objects with `name` and `image`
-
+  const cast = movie.casts || []; // Ensure cast data is present and initialized
+  const movieName = movie.name || 'Movie Name Unavailable'; // Default movie name if not available
+  
   return (
     <div className="mt-8">
-      <h2 className="text-white text-2xl font-bold mb-4 flex justify-start">Cast</h2>
+      <h2 className="text-white text-2xl font-bold mb-4 flex justify-start">{movieName} Cast</h2>
       <div className="flex flex-wrap gap-16 pt-4">
         {cast.length > 0 ? (
           cast.map((actor, index) => (
             <div key={index} className="flex flex-col items-center">
               <img
-                src={actor.image || defaultImage} 
+                src={actor.image || defaultImage} // Use actor's image or default image if not available
                 alt={actor.name}
                 className="w-24 h-24 rounded-full object-cover"
               />

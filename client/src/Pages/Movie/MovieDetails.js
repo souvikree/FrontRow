@@ -5,8 +5,6 @@ import { useNavigate, useParams } from "react-router-dom";
 import { Oval } from "react-loader-spinner";
 import IconText from "../Icons/IconText";
 import { Icon } from "@iconify/react";
-import { toast, ToastContainer } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css';
 
 const defaultMovie = {
   name: "Unknown",
@@ -16,21 +14,23 @@ const defaultMovie = {
   trailer: "",
   genres: ["Unknown"],
   id: 0,
-  isActive: false // Add default isActive status
+  isActive: false,
+  cast: [] // Ensure cast is initialized as an empty array
 };
 
 const MovieDetails = () => {
   const [movie, setMovie] = useState(defaultMovie);
   const [mute, setMute] = useState(true);
   const [loading, setLoading] = useState(true);
-  const [error, setError] = useState(false); 
+  const [error, setError] = useState(false);
+  const [showPopup, setShowPopup] = useState(false);
   const navigate = useNavigate();
-  const { movieId } = useParams();
+  const { id } = useParams();
 
   useEffect(() => {
     const fetchMovieDetails = async () => {
       try {
-        const response = await axios.get(`/api/admin/movies/${movieId}`);
+        const response = await axios.get(`http://localhost:8000/api/movies/${id}`);
         setMovie(response.data);
       } catch (error) {
         console.error('Error fetching movie details:', error);
@@ -41,20 +41,21 @@ const MovieDetails = () => {
     };
 
     fetchMovieDetails();
-  }, [movieId]);
+  }, [id]);
 
   const handleBookingClick = () => {
     if (movie.isActive) {
       setLoading(true);
       setTimeout(() => {
-        navigate(`/booking/${movieId}`, { state: { movie } });
+        navigate(`/booking/${id}`, { state: { movie } });
       }, 2000);
     } else {
-      toast.info("Bookings will be added in few days", {
-        position: toast.POSITION.TOP_CENTER,
-        autoClose: 3000
-      });
+      setShowPopup(true);
     }
+  };
+
+  const closePopup = () => {
+    setShowPopup(false);
   };
 
   if (loading) {
@@ -80,11 +81,24 @@ const MovieDetails = () => {
 
   return (
     <div className="relative flex flex-col justify-start md:flex-row mt-0 h-full w-full bg-[#0c111b] rounded-lg overflow-hidden">
-      <ToastContainer />
+      {showPopup && (
+        <div className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-75 z-50">
+          <div className="bg-white p-8 rounded-md text-center">
+            <h2 className="text-3xl font-bold font-sans  mb-4">Information !</h2>
+            <p className="mb-4">Bookings will be added in few days</p>
+            <button
+              onClick={closePopup}
+              className="bg-red-700 text-white py-2 px-4 rounded hover:bg-red-600"
+            >
+              Close
+            </button>
+          </div>
+        </div>
+      )}
       <div className="w-full md:w-2/5 p-9 md:p-14 pt-10 px-[36px]">
         <h1 className="text-white text-3xl font-bold text-left">{movie.name}</h1>
         <div className="text-white text-base font-semibold mt-6 pl-2 text-left">
-          {movie.languages.join(", ")} • {movie.duration}m • {movie.genres.join(", ")}
+          {movie.languages.join(", ")} • {movie.duration}m • {movie.genres}
         </div>
         <div className="text-gray-200 mt-4 ml-2 text-left">{movie.description}</div>
         <button
@@ -105,6 +119,7 @@ const MovieDetails = () => {
           height="100%"
           className="absolute top-0 left-0 pointer-events-none"
         />
+
         <button
           onClick={() => setMute(!mute)}
           className="absolute left-2 bottom-2 rounded-full p-2"

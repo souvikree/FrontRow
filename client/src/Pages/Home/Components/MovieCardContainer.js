@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import HoverCard from "./HoverCard"
+
 
 const MovieCardContainer = ({ id, image }) => {
   const [isHovered, setIsHovered] = useState(false);

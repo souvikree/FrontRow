@@ -22,9 +22,9 @@ router.post("/logout", theaterOwnerAuth, logoutTheaterOwner);
 router.post("/forgotpassword", forgotPassword);
 router.post("/resetpassword", resetPassword);
 router.post("/theaters", theaterOwnerAuth, addTheater);
-router.delete("/theaters/:theaterId", theaterOwnerAuth, deleteTheater);
-router.patch("/theaters/:theaterId", theaterOwnerAuth, updateTheater);
-router.get('/movies',theaterOwnerAuth , getMovies);
+router.delete("/theaters/delete/:theaterId", theaterOwnerAuth, deleteTheater);
+router.patch("/theaters/update/:theaterId", theaterOwnerAuth, updateTheater);
+router.get('/theaters/movies',theaterOwnerAuth , getMovies);
 router.post('/showtimes', theaterOwnerAuth, addShowtime);
 
 module.exports = router;

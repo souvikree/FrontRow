@@ -21,6 +21,7 @@
     "crypto-browserify": "^3.12.0",
     "font-awesome": "^4.7.0",
     "lottie-react": "^2.4.0",
+    "moment": "^2.30.1",
     "prop-types": "^15.8.1",
     "razorpay": "^2.9.4",
     "react": "^18.3.1",

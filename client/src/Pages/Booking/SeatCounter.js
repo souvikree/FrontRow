@@ -33,7 +33,7 @@ const SeatCounter = ({ isOpen, onClose }) => {
 
   const handleSelectSeats = () => {
     if (totalSeats > 0) {
-      navigate('/selectseats', { state: { totalSeats } }); // Pass totalSeats as state
+      navigate('/selectseats', { state: { totalSeats } }); 
     } else {
       toast.error('Please select at least one seat!', {
         position: 'top-right',
@@ -50,8 +50,8 @@ const SeatCounter = ({ isOpen, onClose }) => {
   return (
     <Modal isOpen={isOpen} onClose={onClose}>
       <div className="p-4 bg-white flex flex-col items-center relative">
-        <ToastContainer /> {/* ToastContainer component for notifications */}
-        {/* Close button (cross) */}
+        <ToastContainer /> 
+        
         <button
           className="absolute top-2 right-2 text-gray-500 hover:text-gray-800"
           onClick={onClose}

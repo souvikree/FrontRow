@@ -8,7 +8,7 @@ const SeatSelect = () => {
   const [selected, setSelected] = useState([]);
   const [selectedCount, setSelectedCount] = useState(0);
   const [totalSum, setTotalSum] = useState(0);
-  const [showConfirmation, setShowConfirmation] = useState(false); // State to control the confirmation modal
+  const [showConfirmation, setShowConfirmation] = useState(false); 
   const navigate = useNavigate();
   const location = useLocation();
 
@@ -40,14 +40,14 @@ const SeatSelect = () => {
 
   const handleConfirmSelection = () => {
     if (selected.length === totalSeats) {
-      setShowConfirmation(true); // Show the confirmation modal
+      setShowConfirmation(true); 
     } else {
       alert(`Please select exactly ${totalSeats} seat(s)!`);
     }
   };
 
   const handleCloseModal = () => {
-    setShowConfirmation(false); // Close the confirmation modal
+    setShowConfirmation(false); 
   };
 
   return (

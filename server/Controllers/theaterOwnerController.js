@@ -22,8 +22,9 @@ const registerTheaterOwner = async (req, res) => {
       const token = await theaterOwner.generateAuthToken();
       res.status(201).send({ theaterOwner, token });
     } catch (error) {
-        console.log(error)
+        
       res.status(400).send(error);
+      console.log(error)
     }
   };
   
@@ -131,11 +132,11 @@ const resetPassword = async (req, res) => {
 // Add Theater
 const addTheater = async (req, res) => {
   try {
-    const { name, city, state, country, address } = req.body;
+    const { name, location, address } = req.body;
     const theater = new Theater({
       owner: req.theaterOwner._id,
       name,
-      location: { city, state, country },
+      location,
       address
     });
     await theater.save();
@@ -200,29 +201,49 @@ const getMovies = async (req, res) => {
   };
   
  
-const addShowtime = async (req, res) => {
-    const { movieId, theaterId, dates } = req.body;
-  
+  const addShowtime = async (req, res) => {
+    const { movie, theater, startdate, enddate, times } = req.body; // Ensure startdate and enddate are properly destructured
+
     try {
-      const movie = await Movie.findById(movieId);
-      const theater = await Theater.findOne({ _id: theaterId, owner: req.theaterOwner._id });
-  
-      if (!movie || !theater) {
-        return res.status(404).send({ error: 'Movie or Theater not found' });
-      }
-  
-      const showtime = new Showtime({ movie: movieId, theater: theaterId, dates });
-      await showtime.save();
-  
-      // Update movie status to active
-      movie.isActive = true;
-      await movie.save();
-  
-      res.status(201).send(showtime);
+        console.log('Request Body:', req.body);
+    
+        // Check if movie exists
+        const movieDoc = await Movie.findById(movie);
+        if (!movieDoc) {
+            console.error('Movie not found for ID:', movie);
+            return res.status(404).send({ error: 'Movie not found' });
+        }
+    
+        // Check if theater exists and is owned by the requesting user
+        const theaterDoc = await Theater.findOne({ _id: theater, owner: req.theaterOwner._id });
+        if (!theaterDoc) {
+            console.error('Theater not found or unauthorized:', theater);
+            return res.status(404).send({ error: 'Theater not found or you do not have permission to access this theater' });
+        }
+    
+        // Create new Showtime document
+        const showtime = new Showtime({
+            movie,
+            theater,
+            startdate, // Ensure startdate and enddate are properly assigned here
+            enddate,
+            times: times // Assuming times is an array like ["10:00 am", "1:00 pm", "6:00 pm"]
+        });
+        await showtime.save();
+    
+        // Link the showtime to the movie
+        movieDoc.showtimes.push(showtime._id);
+        if (!movieDoc.isActive) {
+            movieDoc.isActive = true;
+        }
+        await movieDoc.save();
+    
+        res.status(201).send(showtime);
     } catch (error) {
-      res.status(400).send(error);
+        console.error('Error adding showtime:', error);
+        res.status(500).send({ error: 'Internal server error' });
     }
-  };
+};
 
  
   

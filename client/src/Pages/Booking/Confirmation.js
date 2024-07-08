@@ -1,7 +1,7 @@
 import React from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faTicketAlt, faMoneyBillWave, faFilm } from '@fortawesome/free-solid-svg-icons';
+import { faTicketAlt, faFilm } from '@fortawesome/free-solid-svg-icons';
 
 const GST_RATE = 0.18;
 
@@ -24,18 +24,18 @@ const Confirmation = ({ selectedSeats, totalSum, onClose }) => {
       <div className="bg-gray-800 text-white rounded-lg p-6 w-3/4 md:w-1/2 lg:w-1/3">
         <h1 className="text-2xl font-bold mb-4">Booking Confirmation</h1>
         <div className="mb-4">
-          <p className="flex items-center font-bold">
+          {/* <p className="flex items-center font-bold">
             <FontAwesomeIcon icon={faFilm} className="mr-2" />
             Movie: {movie ? movie.name : 'Movie Name Unavailable'}
-          </p>
-          <p className="flex items-center font-bold">
+          </p> */}
+          {/* <p className="flex items-center font-bold">
             <FontAwesomeIcon icon={faTicketAlt} className="mr-2" />
             Theater: {theater || 'Theater Name Unavailable'}
-          </p>
-          <p className="flex items-center font-bold">
+          </p> */}
+          {/* <p className="flex items-center font-bold">
             <FontAwesomeIcon icon={faTicketAlt} className="mr-2" />
             Showtime: {showtime || 'Showtime Unavailable'}
-          </p>
+          </p> */}
         </div>
         <div className="mb-4">
           <p className="flex items-center font-bold">

@@ -15,7 +15,9 @@ import Profile from './Pages/Profile/Profile';
 import Confirmation from './Pages/Booking/Confirmation';
 import Pay from './Pages/Payment/Pay';
 import PaymentSuccess from './Pages/Payment/PaymentSuccess';
-import CatagoryPage from './Pages/Catagory/CatagoryPage';
+import Catagory from './Pages/SearchBar/Catagory';
+
+
 
 
 function App() {
@@ -36,12 +38,12 @@ function App() {
 
             <Route path='/profile' element={<Profile />}/>
 
-            <Route path="/Catagory" element={<CatagoryPage />} />
+            <Route path="/catagory" element={<Catagory />} />
 
             <Route path="/login" element={<LoginComponent />} />
             <Route path="/signup" element={<SignupComponent />} />
             <Route path="/explore" element={<Search />} />
-            <Route path="/movie/:movie_id" element={<Movie />} />
+            <Route path="/movie/:id" element={<Movie />} />
             <Route path="/booking/:id" element={<Booking />} />
             <Route path="/selectseats" element={<SeatSelect selectedSeats={4} onClose={() => {}} />} />
 

@@ -21,9 +21,9 @@ const Category = () => {
       try {
         let response;
         if (selectedCategory === 'All') {
-          response = await axios.get('/api/admin/movies');
+          response = await axios.get('/api/movies');
         } else {
-          response = await axios.get(`/api/admin/movies/genre/${selectedCategory}`);
+          response = await axios.get(`/api/movies/genre/${selectedCategory}`);
         }
         setFilteredMovies(response.data);
       } catch (error) {

@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
-import { useNavigate } from 'react-router-dom'; // Import useNavigate hook
-import MovieCard1 from './MovieCard1';
+
+import MovieCardContainer from './MovieCardContainer';
 
 const Topmovies = () => {
   const [movies, setMovies] = useState([]);
@@ -9,16 +9,16 @@ const Topmovies = () => {
   const [currentRow, setCurrentRow] = useState(0);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(false);
-  const navigate = useNavigate(); // Initialize useNavigate hook
+  
 
   useEffect(() => {
     const fetchMovies = async () => {
       try {
-        const response = await axios.get('/api/admin/movies/active');
+        const response = await axios.get('http://localhost:8000/api/movies/active'); 
         const moviesData = response.data;
 
         // Assuming moviesData structure from backend
-        const sortedMovies = moviesData.sort((a, b) => b.releaseDate - a.releaseDate); // Adjust sorting as needed
+        const sortedMovies = moviesData.sort((a, b) => new Date(b.releaseDate) - new Date(a.releaseDate));
 
         setMovies(sortedMovies);
       } catch (error) {
@@ -82,18 +82,18 @@ const Topmovies = () => {
   return (
     <div className='bg-black flex flex-wrap'>
       <h2 className='text-2xl text-center text-[#E1E6F0] font-sans font-bold py-4 flex justify-start pl-20'>Available Movies</h2>
-      <div className='relative mx-auto px-4 ml-2'>
-        <div className="flex ml-16 gap-4 pb-4">
+      <div className='relative mx-auto px-4 ml-10  '>
+        <div className="grid gap-4 p-4 mx-auto sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 xl:grid-cols-7 2xl:grid-cols-8 ">
           {moviesToShow.map((movie, idx) => (
-            <div key={movie._id} className={`flex-none ${idx !== 0 ? 'ml-4' : ''} relative`} onClick={() => navigate(`/movie/${movie._id}`)}>
-              <MovieCard1 image={movie.image} />
-              
+            <div key={movie._id} className={`flex-none ${idx !== 0 ? 'ml-4' : ''} relative`} >
+              <MovieCardContainer key={movie._id} id={movie._id} image={movie.image} />
+              <span className="absolute bottom-2 -left-8 bg-transparent rounded-md text-gray-300 text-8xl font-bold p-2">{startIndex + idx + 1}</span>
             </div>
           ))}
         </div>
         {/* Left Arrow */}
         <button
-          className={`absolute top-24 transform -translate-y-1/2 left-16 bg-gray-800 bg-opacity-75 text-white rounded-full p-3 hover:bg-opacity-100 transition ${currentRow === 0 ? 'hidden' : ''}`}
+          className={`absolute top-24  transform -translate-y-1/2 left-16 bg-gray-800 bg-opacity-75 text-white rounded-full p-3 hover:bg-opacity-100 transition ${currentRow === 0 ? 'hidden' : ''}`}
           onClick={prevRow}
         >
           <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>

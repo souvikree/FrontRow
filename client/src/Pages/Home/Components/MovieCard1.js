@@ -6,7 +6,7 @@ const MovieCard1 = ({ movieId }) => {
   useEffect(() => {
     const fetchMovieDetails = async () => {
       try {
-        const response = await fetch(`/api/admin/movie/${movieId}`); // Replace with your actual endpoint
+        const response = await fetch(`http://localhost:8000/api/movies/active`); 
         if (!response.ok) {
           throw new Error('Movie not found');
         }
@@ -25,7 +25,7 @@ const MovieCard1 = ({ movieId }) => {
   }
 
   return (
-    <div className='h-[200px] w-[150px] rounded-xl overflow-hidden mb-6 group'>
+    <div className='h-[200px] w-[150px] rounded-xl overflow-hidden border border-white mb-6 group'>
       <img src={movie.image} alt={movie.name} className='bg-cover rounded-lg' />
     </div>
   );

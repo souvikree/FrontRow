@@ -9,6 +9,10 @@ const theaterSchema = new mongoose.Schema({
       type: String, 
       required: true 
     },
+    address: {
+      type:String,
+      required: true
+    },
   owner: { 
     type: mongoose.Schema.Types.ObjectId, 
     ref: 'TheaterOwner', 

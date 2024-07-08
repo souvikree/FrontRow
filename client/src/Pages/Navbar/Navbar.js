@@ -1,8 +1,12 @@
 import { Link } from "react-router-dom";
 import React from "react";
 import logo from "../assets/FrontRow.png";
+// import { useAuth } from "../context/AuthContext";
 
 const Navbar = () => {
+
+  // const isAuthenticated = useAuth()
+
   return (
     <nav className="bg-black backdrop-blur-lg fixed w-full z-50 top-0">
       <div className="mx-auto px-2 sm:px-4 md:px-6 lg:px-8">
@@ -42,12 +46,12 @@ const Navbar = () => {
               <img src={logo} alt="Logo" className="h-6 mt-2 sm:mt-0 w-auto" />
             </div>
             <div className="hidden sm:flex sm:ml-6 space-x-8">
-              <a
+              {/* <a
                 href="/"
                 className="text-white hover:bg-gray-900 hover:text-gray-100 px-4 py-2 rounded-3xl text-sm font-medium"
               >
                 Movies
-              </a>
+              </a> */}
               <a
                 href="/"
                 className="text-white hover:bg-gray-900 hover:text-gray-100 px-4 py-2 rounded-3xl text-sm font-medium"
@@ -74,8 +78,9 @@ const Navbar = () => {
               </Link>
             </div>
             <div className="hidden sm:flex sm:ml-auto sm:space-x-4">
+              {/* {!isAuthenticated && ( */}
               <div className="flex space-x-4">
-                <Link to="/signup">
+                <Link to="/login">
                   <a
                     href="/"
                     className="text-white hover:bg-gray-900 hover:text-gray-100 px-4 py-2 rounded-3xl text-sm font-medium border border-white"
@@ -83,7 +88,7 @@ const Navbar = () => {
                     Log in
                   </a>
                 </Link>
-                <Link to="/login">
+                <Link to="/signup">
                   <a
                     href="/"
                     className="text-white hover:bg-gray-900 hover:text-gray-100 px-4 py-2 rounded-3xl text-sm font-medium border border-white"
@@ -92,6 +97,7 @@ const Navbar = () => {
                   </a>
                 </Link>
               </div>
+              {/* )} */}
             </div>
           </div>
         </div>
@@ -130,6 +136,7 @@ const Navbar = () => {
           >
             Sign up
           </a>
+        
         </div>
       </div>
     </nav>

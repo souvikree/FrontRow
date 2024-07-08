@@ -1,5 +1,6 @@
 const mongoose = require('mongoose');
 const bcrypt = require('bcryptjs');
+const jwt = require('jsonwebtoken');
 
 const userSchema = new mongoose.Schema({
   email: {
@@ -38,9 +39,14 @@ const userSchema = new mongoose.Schema({
   createdAt: {
     type: Date,
     default: Date.now
-  }
+  },
+  tokens: [{
+    token: {
+      type: String,
+      required: true
+    }
+  }]
 });
-
 
 userSchema.pre('save', async function(next) {
   if (!this.isModified('password')) {
@@ -52,11 +58,40 @@ userSchema.pre('save', async function(next) {
   next();
 });
 
-
-userSchema.methods.matchPassword = async function(enteredPassword) {
-  return await bcrypt.compare(enteredPassword, this.password);
+userSchema.methods.generateAuthToken = async function() {
+  const user = this;
+  const token = jwt.sign({ _id: user._id.toString() }, process.env.JWT_SECRET);
+  user.tokens = user.tokens.concat({ token });
+  await user.save();
+  return token;
 };
 
-const User = mongoose.model('User', userSchema);
+userSchema.statics.findByCredentials = async (email, password) => {
+  const user = await User.findOne({ email }).select('+password');
+  console.log(email)
+  console.log(password)
+  if (!user) {
+    throw new Error('Unable to login');
+  }
 
+  const isMatch = await bcrypt.compare(password, user.password);
+  if (!isMatch) {
+    throw new Error('Unable to login');
+  }
+  return user;
+};
+
+
+userSchema.methods.toJSON = function() {
+  const user = this;
+  const userObject = user.toObject();
+
+  delete userObject.password;
+  delete userObject.tokens;
+
+  return userObject;
+};
+
+
+const User = mongoose.model('User', userSchema);
 module.exports = User;
