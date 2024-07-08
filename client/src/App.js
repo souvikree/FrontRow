@@ -16,25 +16,13 @@ import Confirmation from './Pages/Booking/Confirmation';
 import Pay from './Pages/Payment/Pay';
 import PaymentSuccess from './Pages/Payment/PaymentSuccess';
 import CatagoryPage from './Pages/Catagory/CatagoryPage';
-// import Admin from './Pages/Admin/Admin';
-import AdminMovie from './Pages/Admin/component/AdminMovie';
-import AdminHome from './Pages/Admin/component/AdminHome';
-
-
-
 
 function App() {
 
   return (
-    
-   
-  
     <div className="App">
 
       <Router>
-
-        
-
         <MainLayout>
           <Routes>
             <Route path="/" element={<Home />} />
@@ -43,20 +31,18 @@ function App() {
             <Route path='/profile' element={<Profile />}/>
 
             <Route path="/Catagory" element={<CatagoryPage />} />
-
+            {/* my change */}
+            
             <Route path="/login" element={<LoginComponent />} />
             <Route path="/signup" element={<SignupComponent />} />
             <Route path="/explore" element={<Search />} />
             <Route path="/movie/:movie_id" element={<Movie />} />
             <Route path="/booking/:id" element={<Booking />} />
             <Route path="/selectseats" element={<SeatSelect selectedSeats={4} onClose={() => {}} />} />
-
             <Route path="/confirmation" element={<Confirmation />} />
             <Route path="/payment" element={<Pay/>} />
             <Route path="/success" element={<PaymentSuccess />} />
             {/* <Route path="/admin/dashboard" element={<Admin />} /> */}
-            <Route path="/admin/dashboard/movie" element={<AdminMovie />} />
-            <Route path="/admin/dashboard" element={<AdminHome/>} />
 
           </Routes>
         </MainLayout>
