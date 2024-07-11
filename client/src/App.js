@@ -19,18 +19,12 @@ import Catagory from './Pages/SearchBar/Catagory';
 
 
 
-
 function App() {
 
   return (
-    
-   
-  
     <div className="App">
+
       <Router>
-
-        
-
         <MainLayout>
           <Routes>
             <Route path="/" element={<Home />} />
@@ -46,15 +40,16 @@ function App() {
             <Route path="/movie/:id" element={<Movie />} />
             <Route path="/booking/:id" element={<Booking />} />
             <Route path="/selectseats" element={<SeatSelect selectedSeats={4} onClose={() => {}} />} />
-
             <Route path="/confirmation" element={<Confirmation />} />
             <Route path="/payment" element={<Pay/>} />
             <Route path="/success" element={<PaymentSuccess />} />
+            {/* <Route path="/admin/dashboard" element={<Admin />} /> */}
 
           </Routes>
         </MainLayout>
 
       </Router>
+      
     </div>
   );
 }

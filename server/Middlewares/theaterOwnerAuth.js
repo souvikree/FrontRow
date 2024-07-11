@@ -19,4 +19,5 @@ const theaterOwnerAuth = async (req, res, next) => {
   }
 };
 
+
 module.exports = theaterOwnerAuth;

@@ -148,6 +148,16 @@ const addTheater = async (req, res) => {
   }
 };
 
+// Get all theaters registered by the theater owner
+const getTheaters = async (req, res) => {
+  try {
+    const theaters = await Theater.find({ owner: req.theaterOwner._id });
+    res.status(200).send(theaters);
+  } catch (error) {
+    res.status(500).send(error);
+  }
+};
+
 // Delete Theater
 const deleteTheater = async (req, res) => {
   try {
@@ -257,6 +267,7 @@ module.exports = {
   forgotPassword,
   resetPassword,
   addTheater,
+  getTheaters,
   deleteTheater,
   updateTheater,
   getMovies,

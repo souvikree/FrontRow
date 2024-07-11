@@ -1,4 +1,4 @@
-import React from 'react';
+import React from "react";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faFacebookF, faTwitter, faGithub } from '@fortawesome/free-brands-svg-icons';
 import { faFilm, faStar } from '@fortawesome/free-solid-svg-icons';
@@ -11,54 +11,54 @@ import Vector from "../assets/vector.png";
 
 const teamMembers = [
   {
-    name: 'Chandan Maity',
-    role: 'Fullstack Web Developer',
+    name: "Chandan Maity",
+    role: "Fullstack Web Developer",
     image: chandan,
     socialLinks: {
-      facebook: '#',
-      twitter: '#',
-      github: '#'
-    }
+      facebook: "#",
+      twitter: "#",
+      github: "#",
+    },
   },
   {
-    name: 'Manomoy Maity',
-    role: 'Fullstack Web Developer',
+    name: "Manomoy Maity",
+    role: "Fullstack Web Developer",
     image: manomoy,
     socialLinks: {
-      facebook: '#',
-      twitter: '#',
-      github: 'https://github.com/manomoymaity'
-    }
+      facebook: "#",
+      twitter: "#",
+      github: "https://github.com/manomoymaity",
+    },
   },
   {
-    name: 'Sourish Das',
-    role: 'Fullstack Web Developer',
+    name: "Sourish Das",
+    role: "Fullstack Web Developer",
     image: sourish,
     socialLinks: {
-      facebook: '#',
-      twitter: '#',
-      github: '#'
-    }
+      facebook: "#",
+      twitter: "#",
+      github: "#",
+    },
   },
   {
-    name: 'Souvik Ghosh',
-    role: 'Fullstack Web Developer',
+    name: "Souvik Ghosh",
+    role: "Fullstack Web Developer",
     image: souvik,
     socialLinks: {
-      facebook: '#',
-      twitter: '#',
-      github: '#'
-    }
+      facebook: "#",
+      twitter: "#",
+      github: "#",
+    },
   },
   {
-    name: 'Sujit Kumar Halder',
-    role: 'Fullstack Web Developer',
+    name: "Sujit Kumar Halder",
+    role: "Fullstack Web Developer",
     image: sujit,
     socialLinks: {
-      facebook: '#',
-      twitter: '#',
-      github: '#'
-    }
+      facebook: "#",
+      twitter: "#",
+      github: "#",
+    },
   },
 ];
 
@@ -121,8 +121,9 @@ const AboutUs = () => {
           </div>
         </section>
       </div>
+    
     </div>
   );
-}
+};
 
 export default AboutUs;

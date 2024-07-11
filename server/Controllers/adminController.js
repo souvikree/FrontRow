@@ -19,13 +19,45 @@ const registerAdmin = async (req, res) => {
 
 // Admin login
 const loginAdmin = async (req, res) => {
+  const { email, password } = req.body;
+
   try {
-    const { email, password } = req.body;
+    if (!email || !password) {
+      return res.status(400).json({ error: 'Email and password are required' });
+    }
+
     const admin = await Admin.findByCredentials(email, password);
+
+    if (!admin) {
+      return res.status(401).json({ error: 'Unable to login' });
+    }
+
     const token = await admin.generateAuthToken();
-    res.send({ admin, token });
+    res.status(200).json({ admin, token });
   } catch (error) {
-    res.status(400).send({ error: error.message });
+    console.error('Error during admin login:', error);
+    res.status(400).json({ error: 'Login failed' });
+  }
+};
+
+// Logout User
+exports.logoutAdmin = async (req, res) => {
+  try {
+    const token = req.token;
+    req.admin.tokens = req.admin.tokens.filter((t) => t.token !== token);
+    await req.admin.save();
+    console.log(token);
+
+    res.cookie("jwt", "", {
+      expires: new Date(0),
+      sameSite: "None",
+      secure: true,
+      httpOnly: true,
+    });
+    res.status(200).json({ message: "Logout successful" });
+  } catch (error) {
+    console.error("Error logging out:", error);
+    res.status(500).json({ message: "Server error" });
   }
 };
 

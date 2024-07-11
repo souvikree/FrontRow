@@ -8,13 +8,15 @@ const {
   resetPassword,
   getAllMovies,
   getMoviesByGenre,
+  logoutAdmin,
 } = require("../Controllers/adminController");
 const adminAuth = require("../Middlewares/adminAuth");
 const router = express.Router();
 
 router.post("/admin/register", registerAdmin);
 
-router.post("/admin/", loginAdmin); // Admin login
+router.post("/admin/login", loginAdmin); 
+// router.post('/admin/logout', adminAuth, logoutAdmin);
 router.post("/admin/movie/add", adminAuth, addMovie);
 
 router.delete("/admin/movie/:movieId/delete", adminAuth, deleteMovie);

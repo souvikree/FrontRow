@@ -1,3 +1,4 @@
+
 const express = require('express');
 const bodyParser = require('body-parser');
 const cookieParser = require("cookie-parser");
@@ -20,7 +21,7 @@ app.use(bodyParser.json());
 
 
 const corsOptions ={
-  origin:'http://localhost:3000', 
+  origin:'*', 
   credentials:true,            
   optionSuccessStatus:200
 }
@@ -57,4 +58,5 @@ app.use('/api', userRoutes )
 
 app.listen(port, () => {
     console.log("App is running on port " + port);
-  });
+
+})

@@ -1,8 +1,12 @@
+
 import React, { useState, useEffect } from 'react';
+
+
 import { Icon } from '@iconify/react';
 import axios from 'axios';
 import MovieCardContainer from '../Home/Components/MovieCardContainer';
 import noResultsImage from '../assets/noresult.gif'; // Update the path accordingly
+
 
 const Search = () => {
   const [searchQuery, setSearchQuery] = useState('');
@@ -26,6 +30,7 @@ const Search = () => {
   }, [searchQuery]);
 
   return (
+
     <div className='bg-black min-h-screen flex flex-col'>
       <div className="w-full p-4 mt-16 pl-28">
         <div className="relative w-full">
@@ -57,6 +62,7 @@ const Search = () => {
         )}
       </div>
     </div>
+
   );
 }
 
