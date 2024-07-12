@@ -47,7 +47,7 @@ Frontrow is a modern web application built with React.js, aimed at simplifying t
 
 ## Getting Started
 
-1. **Clone the Repository**: `git clone https://github.com/yourusername/frontrow.git`
+1. **Clone the Repository**: `[git clone https://github.com/yourusername/frontrow.git](https://github.com/souvikree/FrontRow.git)`
   
 2. **Install Dependencies**: `npm install`
   
