@@ -235,9 +235,9 @@ const getMovies = async (req, res) => {
         const showtime = new Showtime({
             movie,
             theater,
-            startdate, // Ensure startdate and enddate are properly assigned here
+            startdate,
             enddate,
-            times: times // Assuming times is an array like ["10:00 am", "1:00 pm", "6:00 pm"]
+            times: times 
         });
         await showtime.save();
     
