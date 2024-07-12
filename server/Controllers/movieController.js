@@ -101,7 +101,7 @@ exports.getTheatersShowtimesByMovieId = async (req, res) => {
       return res.status(404).json({ error: 'No showtimes found for the given movie and date' });
     }
 
-    // Extract relevant data to return
+
     const theatersWithShowtimes = showtimes.map((showtime) => ({
       theater: {
         _id: showtime.theater._id,
