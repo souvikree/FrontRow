@@ -20,7 +20,7 @@ const LoginComponent = () => {
         try {
             console.log("this is email",email)
             console.log("this is pass",password)
-            const response = await axios.post('http://localhost:8000/api/login', { email, password }, { withCredentials: true });
+            const response = await axios.post('https://frontrow-fy8v.onrender.com/api/login', { email, password }, { withCredentials: true });
             const token = response.data.token;
             localStorage.setItem('token', token);
             if (response.status === 202) {

@@ -49,7 +49,7 @@ const LocationSelection = () => {
       },
     };
 
-    axios.post('http://localhost:8000/api/theater/theaters', data, config)
+    axios.post('https://frontrow-fy8v.onrender.com/api/theater/theaters', data, config)
       .then(response => {
         console.log('Successfully added theater:', response.data);
         setName('');

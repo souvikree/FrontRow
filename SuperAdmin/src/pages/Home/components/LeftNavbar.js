@@ -16,7 +16,7 @@ const LeftNavbar = () => {
   const handleLogout = async () => {
     setIsLoading(true);
     try {
-      const response = await axios.post('http://localhost:8000/api/admin/logout', {}, {
+      const response = await axios.post('https://frontrow-fy8v.onrender.com/api/admin/logout', {}, {
         withCredentials: true, // Ensure cookies are included in the request
       });
       if (response.status === 200) {

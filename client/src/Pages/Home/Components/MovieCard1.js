@@ -6,7 +6,7 @@ const MovieCard1 = ({ movieId }) => {
   useEffect(() => {
     const fetchMovieDetails = async () => {
       try {
-        const response = await fetch(`http://localhost:8000/api/movies/active`); 
+        const response = await fetch(`https://frontrow-fy8v.onrender.com/api/movies/active`); 
         if (!response.ok) {
           throw new Error('Movie not found');
         }

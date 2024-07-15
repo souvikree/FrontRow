@@ -20,7 +20,7 @@ const Profile = () => {
         if (!token) {
           throw new Error('No token found');
         }
-        const response = await axios.get('http://localhost:8000/api/profile', {
+        const response = await axios.get('https://frontrow-fy8v.onrender.com/api/profile', {
           headers: {
             Authorization: `Bearer ${token}`,
           },
@@ -40,7 +40,7 @@ const Profile = () => {
   const handleLogout = async () => {
     try {
       const token = localStorage.getItem('token');
-      await axios.post('http://localhost:8000/api/logout', {}, {
+      await axios.post('https://frontrow-fy8v.onrender.com/api/logout', {}, {
         headers: {
           Authorization: `Bearer ${token}`,
         },

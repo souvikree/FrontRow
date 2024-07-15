@@ -22,7 +22,7 @@ const Login = () => {
     setError('');
     
     try {
-      const response = await axios.post('http://localhost:8000/api/theater/', {
+      const response = await axios.post('https://frontrow-fy8v.onrender.com/api/theater/', {
         email,
         password
       });

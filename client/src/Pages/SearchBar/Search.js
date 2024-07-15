@@ -16,7 +16,7 @@ const Search = () => {
     if (searchQuery) {
       const fetchMovies = async () => {
         try {
-          const response = await axios.get(`http://localhost:8000/api/movies/name/${searchQuery}`);
+          const response = await axios.get(`https://frontrow-fy8v.onrender.com/api/movies/name/${searchQuery}`);
           setSearchResults(response.data);
         } catch (error) {
           console.error('Error fetching movies:', error);

@@ -14,7 +14,7 @@ const Topmovies = () => {
   useEffect(() => {
     const fetchMovies = async () => {
       try {
-        const response = await axios.get('http://localhost:8000/api/movies/active'); 
+        const response = await axios.get('https://frontrow-fy8v.onrender.com/api/movies/active'); 
         const moviesData = response.data;
 
         // Assuming moviesData structure from backend

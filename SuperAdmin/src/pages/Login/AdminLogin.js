@@ -33,7 +33,7 @@ const AdminLogin = () => {
       console.log("Submitting login with email:", email);
       console.log("Submitting login with password:", password);
       const response = await axios.post(
-        'http://localhost:8000/api/admin/login',
+        'https://frontrow-fy8v.onrender.com/api/admin/login',
         { email, password },
         {
           headers: {

@@ -14,7 +14,7 @@ const ManageADD = () => {
     setLoading(true);
     try {
       const token = localStorage.getItem('token');
-      const response = await axios.get('http://localhost:8000/api/admin/movies', {
+      const response = await axios.get('https://frontrow-fy8v.onrender.com/api/admin/movies', {
         headers: {
           'Authorization': `Bearer ${token}`
         }
@@ -52,7 +52,7 @@ const ManageADD = () => {
 
   const handleDeleteMovie = async (id) => {
     try {
-      await axios.delete(`http://localhost:8000/admin/movies/${id}/delete`);
+      await axios.delete(`https://frontrow-fy8v.onrender.com/admin/movies/${id}/delete`);
       setMovies(movies.filter((movie) => movie._id !== id));
     } catch (error) {
       console.error('Error deleting movie:', error);

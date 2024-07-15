@@ -59,7 +59,7 @@ const Theater = () => {
   const fetchMovies = async () => {
     try {
       const response = await axios.post(
-        "http://localhost:8000/api/theater/theaters/movies"
+        "https://frontrow-fy8v.onrender.com/api/theater/theaters/movies"
       );
       setMovies(response.data); // Assuming data is in the format [{ value: 'id', label: 'Movie Title' }, ...]
     } catch (error) {
@@ -70,7 +70,7 @@ const Theater = () => {
   const fetchTheaters = async () => {
     try {
       const response = await axios.post(
-        "http://localhost:8000/api/theater/showtheaters"
+        "https://frontrow-fy8v.onrender.com/api/theater/showtheaters"
       );
       setTheaters(response.data); // Assuming data is in the format [{ value: 'id', label: 'Theater Name' }, ...]
     } catch (error) {
@@ -80,7 +80,7 @@ const Theater = () => {
 
   const fetchMoviesByName = async () => {
     try {
-      const response = await axios.get(`http://localhost:8000/api/movies/name/${searchQuery}`);
+      const response = await axios.get(`https://frontrow-fy8v.onrender.com/api/movies/name/${searchQuery}`);
       setSearchResults(response.data);
     } catch (error) {
       console.error('Error fetching movies by name:', error);

@@ -8,7 +8,7 @@ const ManageMovie = ({ onMovieSelect }) => {
   useEffect(() => {
     const fetchMovies = async () => {
       try {
-        const response = await axios.get('http://localhost:8000/movies');
+        const response = await axios.get('https://frontrow-fy8v.onrender.com/movies');
         console.log(response); // Adjust endpoint to fetch all movies
         setMovies(response.data.movies); // Assuming response contains array of movies
       } catch (error) {

@@ -22,7 +22,7 @@ const TheaterTimes = () => {
 
       try {
         setIsLoading(true);
-        const response = await axios.get(`http://localhost:8000/api/movies/${movie._id}/showtimes`, {
+        const response = await axios.get(`https://frontrow-fy8v.onrender.com/api/movies/${movie._id}/showtimes`, {
           params: { date: selectedDate },
           headers: { 'Cache-Control': 'no-cache' },
         });

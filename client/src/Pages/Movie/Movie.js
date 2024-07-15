@@ -13,7 +13,7 @@ const Movie = () => {
     useEffect(() => {
         const fetchMovieDetails = async () => {
             try {
-                const response = await axios.get(`http://localhost:8000/api/movies/${id}`);
+                const response = await axios.get(`https://frontrow-fy8v.onrender.com/api/movies/${id}`);
                 setMovie(response.data);
             } catch (error) {
                 console.error('Error fetching movie details:', error);

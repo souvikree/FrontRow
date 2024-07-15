@@ -8,7 +8,7 @@ const Middle = () => {
   useEffect(() => {
     const fetchInactiveMovies = async () => {
       try {
-        const response = await axios.get('http://localhost:8000/api/movies/inactive');
+        const response = await axios.get('https://frontrow-fy8v.onrender.com/api/movies/inactive');
         setInactiveMovies(response.data);
       } catch (error) {
         console.error('Error fetching inactive movies:', error);

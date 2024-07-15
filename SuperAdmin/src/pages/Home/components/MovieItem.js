@@ -15,7 +15,7 @@ const MovieItem = ({ movie, onDelete, onUpdate }) => {
 
   const handleDelete = async () => {
     try {
-      await axios.delete(`http://localhost:8000/movies/${_id}/delete`);
+      await axios.delete(`https://frontrow-fy8v.onrender.com/movies/${_id}/delete`);
       onDelete(_id); // Trigger parent component's delete function
     } catch (error) {
       console.error("Error deleting movie:", error);
@@ -39,7 +39,7 @@ const MovieItem = ({ movie, onDelete, onUpdate }) => {
         releaseDate: updatedReleaseDate,
         trailer: updatedTrailer,
       };
-      await axios.put(`http://localhost:8000/movies/${_id}`, updatedMovie);
+      await axios.put(`https://frontrow-fy8v.onrender.com/movies/${_id}`, updatedMovie);
       onUpdate(updatedMovie); // Trigger parent component's update function
       setIsUpdateOpen(false);
     } catch (error) {

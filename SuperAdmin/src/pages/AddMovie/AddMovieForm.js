@@ -34,7 +34,7 @@ const AddMovieForm = ({ onClose }) => {
       const token = localStorage.getItem('token'); // Adjust based on how you store the token
 
       const response = await axios.post(
-        'http://localhost:8000/api/admin/movie/add',
+        'https://frontrow-fy8v.onrender.com/api/admin/movie/add',
         formData,
         {
           headers: {

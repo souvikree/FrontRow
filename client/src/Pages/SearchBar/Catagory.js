@@ -21,9 +21,9 @@ const Catagory = () => {
       try {
         let response;
         if (selectedCategory === 'All') {
-          response = await axios.get('http://localhost:8000/api/movies');
+          response = await axios.get('https://frontrow-fy8v.onrender.com/api/movies');
         } else {
-          response = await axios.get(`http://localhost:8000/api/movies/genre/${selectedCategory}`);
+          response = await axios.get(`https://frontrow-fy8v.onrender.com/api/movies/genre/${selectedCategory}`);
         }
         setFilteredMovies(response.data);
       } catch (error) {

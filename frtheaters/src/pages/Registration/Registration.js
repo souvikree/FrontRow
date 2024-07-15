@@ -14,7 +14,7 @@ const Registration = () => {
     e.preventDefault();
 
     try {
-      const response = await axios.post('http://localhost:8000/api/theater/register', {
+      const response = await axios.post('https://frontrow-fy8v.onrender.com/api/theater/register', {
         name,
         email,
         password,

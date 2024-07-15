@@ -22,7 +22,7 @@ const SignupComponent = () => {
 
     try {
       // Make API call to register user
-      const response = await axios.post("http://localhost:8000/api/register", {
+      const response = await axios.post("https://frontrow-fy8v.onrender.com/api/register", {
         username,
         email,
         password,
