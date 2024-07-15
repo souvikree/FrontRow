@@ -13,7 +13,7 @@ const movieRoutes = require("./Routes/movieRoutes")
 const userRoutes = require("./Routes/userRoutes")
 
 
-const port = 8000;
+const port = process.env.PORT || 8000;
 
 const app = express();
 
@@ -57,6 +57,6 @@ app.use('/api', userRoutes )
 
 
 app.listen(port, () => {
-    console.log("App is running on port " + port);
+    console.log(`App is running on port  ${port}`);
 
 })
